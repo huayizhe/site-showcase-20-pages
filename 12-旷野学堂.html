@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>旷野学堂 OPENFIELD ｜ 12 周创意训练营 · 靠作品说话</title>
+  <meta name="description" content="旷野学堂 OPENFIELD——面向转行与进阶创作者的 12 周训练营。24 人小班、真实项目 brief、每周一次作品评审，毕业时带走一套自己的作品集。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>/* base.css — 案例库公共底座（reset / 无障碍 / 图片兜底 / 揭示 / 光标 / 降级）
+   各站在其上写自己的皮肤；除工具维护者外不得修改本文件。 */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+html.menu-locked { overflow: hidden; }
+body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; min-height: 100vh; }
+img, svg, video, canvas { display: block; max-width: 100%; }
+button, input, select, textarea { font: inherit; color: inherit; background: none; border: 0; }
+button { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+:focus { outline: none; }
+:focus-visible { outline: 3px solid var(--accent, #ff4d00); outline-offset: 3px; border-radius: 2px; }
+::selection { background: var(--accent, #ff4d00); color: var(--accent-contrast, #fff); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.container { width: min(100% - clamp(48px, 8vw, 176px), var(--container, 1360px)); margin-inline: auto; }
+
+/* 图片兜底：容器带渐变与 aspect-ratio，图片失败后仍保持布局 */
+.img-ph { position: relative; display: block; overflow: hidden; background: var(--ph, linear-gradient(135deg, #e6e0d2, #c9d1c0)); }
+.img-ph > img { width: 100%; height: 100%; object-fit: cover; }
+.img-ph--error::after { content: attr(data-ph-label); position: absolute; inset: 0; display: grid; place-items: center; font: 600 .72rem/1 var(--font-sans, system-ui, sans-serif); letter-spacing: .22em; text-transform: uppercase; color: rgb(0 0 0 / .26); }
+
+/* 滚动揭示（html.js 由 base.js 添加；无 JS / reduced-motion 时直接可见） */
+html.js [data-reveal] { opacity: 0; transform: translateY(36px); transition: opacity .8s cubic-bezier(.16, 1, .3, 1), transform .8s cubic-bezier(.16, 1, .3, 1); }
+html.js [data-reveal].is-inview { opacity: 1; transform: none; }
+
+/* 自定义光标（仅精确指针设备；站点可用 .base-cursor 覆盖样式） */
+.base-cursor { position: fixed; left: 0; top: 0; z-index: 9999; pointer-events: none; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 999px; background: #fff; mix-blend-mode: difference; opacity: 0; transition: width .25s, height .25s, margin .25s, opacity .3s; display: grid; place-items: center; }
+.base-cursor.is-on { opacity: 1; }
+.base-cursor.is-active { width: 64px; height: 64px; margin: -32px 0 0 -32px; }
+.base-cursor span { font: 600 10px/1 var(--font-sans, system-ui, sans-serif); letter-spacing: .14em; text-transform: uppercase; color: #000; opacity: 0; transition: opacity .2s; }
+.base-cursor.is-active span { opacity: 1; }
+@media (hover: none), (pointer: coarse) { .base-cursor { display: none; } }
+
+/* prefers-reduced-motion 全局降级 */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001s !important; animation-iteration-count: 1 !important; transition-duration: .001s !important; }
+  html.js [data-reveal] { opacity: 1 !important; transform: none !important; }
+  .base-cursor { display: none; }
+}
+</style>
+  <style>/* ==========================================================
+   12 旷野学堂 OPENFIELD — 创意职业教育 · 明快学院编辑风
+   奶油纸 #FFFBF2 / 墨绿 #1E3A2F / 芥末黄 #E8A93D
+   字体：Bricolage Grotesque + Noto Sans SC
+   语言：纸卡、虚线、手绘下划线、硬偏移阴影 —— 与素研的大圆角柔系相反
+   ========================================================== */
+:root {
+  --paper: #FFFBF2;
+  --paper-2: #F5EEDF;
+  --ink: #1E3A2F;
+  --ink-soft: #51665B;
+  --green: #1E3A2F;
+  --green-mid: #2E5343;
+  --mustard: #E8A93D;
+  --mustard-soft: #F7E3BC;
+  --line: #E3D9C4;
+  --accent: #E8A93D;
+  --accent-contrast: #1E3A2F;
+  --font-sans: 'Bricolage Grotesque', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --container: 1240px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --hard-shadow: 6px 6px 0 rgba(30, 58, 47, 0.14);
+}
+
+html { scroll-padding-top: 92px; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.78;
+  background-image: radial-gradient(rgba(30, 58, 47, 0.045) 1px, transparent 1.4px);
+  background-size: 26px 26px;
+}
+h1, h2, h3 { line-height: 1.16; letter-spacing: -0.005em; }
+
+.kicker {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green-mid);
+  border-bottom: 2px dashed var(--mustard);
+  padding-bottom: 6px;
+  margin-bottom: 22px;
+}
+
+/* 手绘下划线 */
+.u-sketch { position: relative; display: inline-block; white-space: nowrap; }
+.u-sketch > svg { position: absolute; left: -2%; bottom: -0.28em; width: 104%; height: 0.34em; overflow: visible; }
+.u-sketch > svg path { stroke: var(--mustard); stroke-width: 7; fill: none; stroke-linecap: round; }
+
+/* ---------- 按钮 ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 28px; border-radius: 10px;
+  font-weight: 700; font-size: 0.98rem; letter-spacing: 0.02em;
+  border: 2px solid var(--green);
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), background 0.35s var(--ease), color 0.35s var(--ease);
+}
+.btn--green { background: var(--green); color: var(--paper); box-shadow: var(--hard-shadow); }
+.btn--green:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 rgba(30, 58, 47, 0.18); }
+.btn--line { background: transparent; color: var(--green); }
+.btn--line:hover { background: var(--mustard-soft); transform: translate(-3px, -3px); box-shadow: var(--hard-shadow); }
+
+/* ---------- 导航 ---------- */
+.nav { position: fixed; inset: 0 0 auto; z-index: 60; padding: 16px 0; transition: background 0.4s var(--ease), box-shadow 0.4s var(--ease); }
+.nav.is-scrolled { background: rgba(255, 251, 242, 0.94); backdrop-filter: blur(10px); box-shadow: 0 2px 0 var(--line); }
+.nav__inner { display: flex; align-items: center; gap: 28px; }
+.nav__logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.08rem; }
+.nav__wordmark em { font-weight: 500; font-size: 0.72em; letter-spacing: 0.16em; color: var(--green-mid); margin-left: 2px; }
+.nav__links { display: flex; gap: 24px; margin-left: auto; font-weight: 600; font-size: 0.94rem; }
+.nav__links a { padding: 6px 10px; border-radius: 8px; color: var(--ink-soft); transition: color 0.3s var(--ease), background 0.3s var(--ease); }
+.nav__links a:hover { color: var(--green); background: var(--mustard-soft); }
+.nav__links a.is-active { color: var(--green); background: var(--mustard); }
+.nav__cta { padding: 11px 22px; font-size: 0.9rem; }
+.nav__burger { display: none; width: 46px; height: 46px; border: 2px solid var(--green); border-radius: 10px; position: relative; margin-left: auto; }
+.nav__burger span { position: absolute; left: 11px; right: 11px; height: 2.2px; background: var(--green); border-radius: 2px; transition: transform 0.35s var(--ease), top 0.35s var(--ease), opacity 0.3s; }
+.nav__burger span:nth-child(1) { top: 14px; }
+.nav__burger span:nth-child(2) { top: 21px; }
+.nav__burger span:nth-child(3) { top: 28px; }
+.nav__burger.is-open span:nth-child(1) { top: 21px; transform: rotate(45deg); }
+.nav__burger.is-open span:nth-child(2) { opacity: 0; }
+.nav__burger.is-open span:nth-child(3) { top: 21px; transform: rotate(-45deg); }
+
+/* 全屏菜单 */
+.menu { position: fixed; inset: 0; z-index: 50; background: var(--green); color: var(--paper); display: flex; flex-direction: column; justify-content: center; padding: 96px 34px 44px; opacity: 0; visibility: hidden; transition: opacity 0.45s var(--ease), visibility 0.45s; }
+.menu.is-open { opacity: 1; visibility: visible; }
+.menu__nav { display: flex; flex-direction: column; gap: 4px; }
+.menu__nav a { font-size: clamp(1.7rem, 7.5vw, 2.5rem); font-weight: 800; padding: 9px 0; border-bottom: 1.5px dashed rgba(255, 251, 242, 0.25); transform: translateY(16px); opacity: 0; transition: transform 0.55s var(--ease), opacity 0.55s var(--ease), color 0.3s; }
+.menu.is-open .menu__nav a { transform: none; opacity: 1; }
+.menu.is-open .menu__nav a:nth-child(2) { transition-delay: 0.05s; }
+.menu.is-open .menu__nav a:nth-child(3) { transition-delay: 0.1s; }
+.menu.is-open .menu__nav a:nth-child(4) { transition-delay: 0.15s; }
+.menu.is-open .menu__nav a:nth-child(5) { transition-delay: 0.2s; }
+.menu.is-open .menu__nav a:nth-child(6) { transition-delay: 0.25s; }
+.menu__nav a:hover { color: var(--mustard); }
+.menu__cta { color: var(--mustard) !important; }
+.menu__meta { margin-top: 32px; font-size: 0.9rem; color: rgba(255, 251, 242, 0.72); line-height: 2; }
+.menu__meta a { text-decoration: underline; text-underline-offset: 4px; }
+
+/* ---------- 首屏 ---------- */
+.hero { padding: clamp(150px, 20vh, 220px) 0 clamp(64px, 8vw, 100px); overflow: hidden; }
+.hero__grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(36px, 5vw, 72px); align-items: center; }
+.hero__kicker { font-size: 0.78rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-mid); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+.hero__kicker::before { content: ""; width: 34px; height: 2px; background: var(--mustard); }
+.hero__title { font-size: clamp(2.7rem, 6vw, 4.7rem); font-weight: 800; letter-spacing: -0.01em; }
+.hero__sub { margin: 26px 0 32px; color: var(--ink-soft); font-size: 1.08rem; max-width: 44ch; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 14px; }
+.hero__meta { margin-top: 26px; font-size: 0.86rem; font-weight: 600; color: var(--green-mid); letter-spacing: 0.06em; }
+
+/* 便签卡 */
+.hero__notes { position: relative; min-height: 420px; }
+.note {
+  position: absolute; width: min(78%, 320px);
+  background: #fff; border: 1.5px solid var(--ink);
+  border-radius: 10px; padding: 20px 20px 16px;
+  box-shadow: var(--hard-shadow);
+  transition: transform 0.5s var(--ease);
+}
+.note p { font-weight: 600; font-size: 0.98rem; line-height: 1.7; }
+.note footer { margin-top: 12px; font-size: 0.78rem; color: var(--ink-soft); }
+.note::before { content: ""; position: absolute; top: -9px; left: 50%; width: 68px; height: 18px; transform: translateX(-50%) rotate(-2deg); background: rgba(232, 169, 61, 0.5); border: 1px solid rgba(30, 58, 47, 0.12); }
+.note--a { top: 2%; left: 4%; transform: rotate(-3deg); z-index: 3; }
+.note--b { top: 34%; right: 0; transform: rotate(2.4deg); z-index: 2; }
+.note--c { bottom: 0; left: 12%; transform: rotate(-1.6deg); z-index: 4; }
+.note:hover { transform: rotate(0) scale(1.03); z-index: 9; }
+/* 便签入场：像散落的纸片落定 */
+html.js [data-tilt] { opacity: 0; transform: translateY(40px) rotate(6deg); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
+html.js [data-tilt].is-inview { opacity: 1; }
+html.js [data-tilt].note--a.is-inview { transform: rotate(-3deg); }
+html.js [data-tilt].note--b.is-inview { transform: rotate(2.4deg); }
+html.js [data-tilt].note--c.is-inview { transform: rotate(-1.6deg); }
+html.js [data-tilt]:hover { transform: rotate(0) scale(1.03); }
+
+/* ---------- 方法 ---------- */
+.method { padding: clamp(72px, 9vw, 120px) 0; background: var(--paper-2); border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+.method__head { max-width: 640px; margin-bottom: clamp(36px, 5vw, 60px); }
+.method__head h2, .map__head h2, .works__head h2, .faq__head h2 { font-size: clamp(2rem, 4.2vw, 3.3rem); font-weight: 800; }
+.method__cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.mcard { position: relative; background: #fff; border: 1.5px solid var(--ink); border-radius: 12px; padding: 30px 26px 26px; box-shadow: var(--hard-shadow); transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease); }
+.mcard:hover { transform: translate(-4px, -4px); box-shadow: 10px 10px 0 rgba(30, 58, 47, 0.16); }
+.mcard__no { display: inline-block; font-family: inherit; font-weight: 800; font-size: 0.78rem; letter-spacing: 0.14em; background: var(--mustard); border-radius: 6px; padding: 4px 10px; margin-bottom: 16px; }
+.mcard h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; }
+.mcard p { font-size: 0.94rem; color: var(--ink-soft); }
+.mcard__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.mcard__tags li { font-size: 0.74rem; font-weight: 700; padding: 4px 10px; border: 1.5px dashed var(--green-mid); border-radius: 999px; color: var(--green-mid); }
+/* 笔记卡 stagger */
+html.js [data-note] { opacity: 0; transform: translateY(34px) rotate(0.8deg); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease), box-shadow 0.45s var(--ease); }
+html.js [data-note].is-inview { opacity: 1; transform: none; }
+html.js [data-note]:hover { transform: translate(-4px, -4px); }
+
+/* ---------- 12 周课程地图 ---------- */
+.map { padding: clamp(72px, 9vw, 120px) 0; }
+.map__head { margin-bottom: 34px; }
+.map__head h2 { margin-bottom: 10px; }
+.map__hint { color: var(--ink-soft); font-size: 0.9rem; }
+.map__viewport { position: relative; padding: 0 0 8px; }
+.map__track {
+  display: flex; align-items: center; gap: 8px;
+  overflow-x: auto; scroll-behavior: smooth;
+  padding: 26px 8px 20px; margin: 0 4px;
+  scrollbar-width: none; cursor: grab; user-select: none; -webkit-user-select: none;
+}
+.map__track::-webkit-scrollbar { display: none; }
+.map__track.is-drag { cursor: grabbing; scroll-behavior: auto; }
+.map__track:focus-visible { outline-offset: 8px; }
+.map__line { position: absolute; top: 52px; left: 12px; right: 12px; height: 2px; background: repeating-linear-gradient(90deg, var(--green-mid) 0 8px, transparent 8px 16px); opacity: 0.5; }
+.map__node {
+  flex: none; width: 96px; display: flex; flex-direction: column; align-items: center; gap: 10px;
+  position: relative; z-index: 1;
+}
+.map__node i { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-weight: 800; font-size: 0.82rem; border: 2px solid var(--green-mid); background: var(--paper); color: var(--green-mid); transition: transform 0.35s var(--ease), background 0.35s var(--ease), color 0.35s var(--ease), box-shadow 0.35s var(--ease); }
+.map__node b { font-size: 0.74rem; font-weight: 700; text-align: center; line-height: 1.35; color: var(--ink-soft); }
+.map__node:hover i { transform: translateY(-4px); background: var(--mustard-soft); }
+.map__node.is-active i { background: var(--green); color: var(--paper); transform: translateY(-4px); box-shadow: 3px 3px 0 rgba(232, 169, 61, 0.9); }
+.map__node.is-active b { color: var(--green); }
+.map__arrow { position: absolute; top: 38%; z-index: 2; width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--green); background: var(--paper); display: grid; place-items: center; color: var(--green); box-shadow: var(--hard-shadow); transition: transform 0.3s var(--ease), background 0.3s; }
+.map__arrow:hover { background: var(--mustard); transform: scale(1.06); }
+.map__arrow--l { left: -14px; }
+.map__arrow--r { right: -14px; }
+
+/* 周大纲手风琴 */
+.map__accordion { margin-top: 30px; max-width: 880px; }
+.accordion { display: flex; flex-direction: column; gap: 10px; }
+.accordion__item { background: #fff; border: 1.5px solid var(--ink); border-radius: 10px; overflow: hidden; transition: background 0.3s var(--ease); }
+.accordion__item.is-open { background: #FFFDF6; }
+.accordion__btn { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 17px 20px; text-align: left; font-weight: 700; font-size: 1rem; }
+.accordion__btn .wk { flex: none; display: inline-grid; place-items: center; min-width: 52px; padding: 3px 8px; margin-right: 12px; border-radius: 6px; background: var(--paper-2); border: 1.5px solid var(--line); font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; color: var(--green-mid); }
+.accordion__item.is-open .accordion__btn .wk { background: var(--mustard); border-color: var(--mustard); color: var(--ink); }
+.accordion__chev { flex: none; color: var(--green-mid); transition: transform 0.4s var(--ease); }
+.accordion__item.is-open .accordion__chev { transform: rotate(180deg); }
+.accordion__panel { padding: 0 20px 20px 84px; }
+.accordion__panel p { font-size: 0.93rem; color: var(--ink-soft); margin-bottom: 10px; }
+.accordion__panel ul { display: flex; flex-wrap: wrap; gap: 8px; }
+.accordion__panel ul li { font-size: 0.76rem; font-weight: 700; padding: 4px 10px; background: var(--mustard-soft); border-radius: 999px; color: var(--ink); }
+
+/* ---------- 导师 ---------- */
+.mentors { padding: clamp(72px, 9vw, 120px) 0; background: var(--green); color: var(--paper); }
+.mentors .kicker { color: var(--mustard); border-bottom-color: rgba(255, 251, 242, 0.4); }
+.mentors__head { margin-bottom: clamp(36px, 5vw, 60px); }
+.mentors__head h2 { font-size: clamp(2rem, 4.2vw, 3.3rem); font-weight: 800; }
+.mentors__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.mentor { background: rgba(255, 251, 242, 0.06); border: 1.5px solid rgba(255, 251, 242, 0.22); border-radius: 12px; padding: 18px 18px 24px; transition: transform 0.45s var(--ease), background 0.45s var(--ease); }
+.mentor:hover { transform: translateY(-6px); background: rgba(255, 251, 242, 0.1); }
+.mentor__ph { display: block; aspect-ratio: 4 / 3; border-radius: 8px; }
+.mentor h3 { margin: 16px 4px 8px; font-size: 1.2rem; font-weight: 800; display: flex; flex-direction: column; gap: 3px; }
+.mentor h3 span { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.12em; color: var(--mustard); }
+.mentor p { padding: 0 4px; font-size: 0.88rem; color: rgba(255, 251, 242, 0.75); }
+
+/* ---------- 作品与去向 ---------- */
+.works { padding: clamp(72px, 9vw, 120px) 0; }
+.works__head { margin-bottom: 34px; }
+.works__stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-bottom: 44px; }
+.wstat { border: 1.5px dashed var(--green-mid); border-radius: 12px; padding: 22px 20px; background: #fff; }
+.wstat dt { font-size: clamp(1.9rem, 3vw, 2.7rem); font-weight: 800; color: var(--green); font-variant-numeric: tabular-nums; }
+.wstat dd { font-size: 0.8rem; color: var(--ink-soft); margin-top: 6px; }
+.works__cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.wcard { background: #fff; border: 1.5px solid var(--ink); border-radius: 12px; overflow: hidden; box-shadow: var(--hard-shadow); transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease); }
+.wcard:hover { transform: translate(-4px, -4px); box-shadow: 10px 10px 0 rgba(232, 169, 61, 0.55); }
+.wcard__ph { display: block; aspect-ratio: 4 / 2.6; border-bottom: 1.5px solid var(--ink); }
+.wcard__meta { padding: 16px 20px 0; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green-mid); }
+.wcard h3 { padding: 6px 20px 2px; font-size: 1.18rem; font-weight: 800; }
+.wcard p:last-child { padding: 0 20px 20px; font-size: 0.84rem; color: var(--ink-soft); }
+
+/* ---------- FAQ ---------- */
+.faq { padding: clamp(72px, 9vw, 120px) 0; background: var(--paper-2); border-top: 2px solid var(--ink); }
+.faq__grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(32px, 5vw, 72px); align-items: start; }
+.faq__head h2 { margin-top: 0; }
+.faq .accordion__panel { padding-left: 20px; }
+
+/* ---------- 报名 ---------- */
+.apply { padding: clamp(72px, 9vw, 120px) 0; }
+.apply__grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(32px, 5vw, 80px); align-items: start; }
+.apply__copy h2 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; margin-bottom: 18px; }
+.apply__copy > p { color: var(--ink-soft); max-width: 44ch; }
+.apply__facts { margin-top: 30px; display: flex; flex-direction: column; gap: 12px; font-size: 0.94rem; }
+.apply__facts li { display: flex; gap: 14px; border-bottom: 1.5px dashed var(--line); padding-bottom: 12px; }
+.apply__facts strong { flex: none; min-width: 64px; color: var(--green); }
+.apply__formwrap { background: #fff; border: 2px solid var(--ink); border-radius: 14px; padding: clamp(24px, 3vw, 38px); box-shadow: var(--hard-shadow); }
+.form { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 20px; }
+.field { display: flex; flex-direction: column; gap: 7px; }
+.field--full { grid-column: 1 / -1; }
+.field label { font-size: 0.82rem; font-weight: 800; }
+.field label i { color: var(--mustard); font-style: normal; }
+.field input, .field select, .field textarea { background: var(--paper); border: 1.5px solid var(--line); border-radius: 8px; padding: 12px 15px; font-size: 0.95rem; color: var(--ink); width: 100%; transition: border-color 0.3s var(--ease), background 0.3s var(--ease); }
+.field textarea { resize: vertical; min-height: 84px; }
+.field input::placeholder, .field textarea::placeholder { color: #B0A78F; }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--green); background: #fff; }
+.field.is-error input, .field.is-error select { border-color: #B23A2E; background: #FBF0EA; }
+.field__err { min-height: 1.1em; font-size: 0.76rem; font-weight: 700; color: #A93226; }
+.form__summary { grid-column: 1 / -1; font-size: 0.84rem; font-weight: 700; color: #A93226; min-height: 1.4em; }
+.form__submit { grid-column: 1 / -1; justify-content: center; width: 100%; }
+.form__submit[disabled] { opacity: 0.6; cursor: wait; transform: none; box-shadow: none; }
+.form__hint { grid-column: 1 / -1; font-size: 0.74rem; color: var(--ink-soft); }
+.form__done { text-align: center; padding: clamp(20px, 4vw, 44px) 10px; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.form__done h3 { font-size: 1.5rem; font-weight: 800; }
+.form__done p { color: var(--ink-soft); max-width: 38ch; }
+.form__done .btn { margin-top: 8px; }
+
+/* ---------- 页脚 ---------- */
+.footer { background: var(--ink); color: #EAE7DC; padding: clamp(52px, 7vw, 84px) 0 30px; }
+.footer__grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 40px; padding-bottom: 42px; border-bottom: 1.5px dashed rgba(234, 231, 220, 0.3); }
+.footer__logo { font-size: 1.5rem; font-weight: 800; margin-bottom: 12px; }
+.footer__logo em { font-weight: 500; font-size: 0.7em; letter-spacing: 0.18em; color: var(--mustard); }
+.footer__brand p:last-child { color: #B9C2B3; font-size: 0.9rem; }
+.footer__nav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; align-content: start; font-size: 0.92rem; }
+.footer__nav a { color: #B9C2B3; transition: color 0.3s; }
+.footer__nav a:hover { color: var(--mustard); }
+.footer__contact { font-size: 0.92rem; display: flex; flex-direction: column; gap: 8px; color: #B9C2B3; }
+.footer__contact a:hover { color: var(--mustard); }
+.footer__legal { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 24px; font-size: 0.76rem; color: #94A092; }
+.footer__legal a { text-decoration: underline; text-underline-offset: 3px; }
+.footer__fiction { letter-spacing: 0.08em; }
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 1024px) {
+  .nav__links, .nav__cta { display: none; }
+  .nav__burger { display: block; }
+  .hero__grid { grid-template-columns: 1fr; }
+  .hero__notes { min-height: 380px; max-width: 560px; }
+  .method__cards, .mentors__grid, .works__cards { grid-template-columns: 1fr 1fr; }
+  .works__stats { grid-template-columns: 1fr 1fr; }
+  .map__arrow--l { left: -6px; }
+  .map__arrow--r { right: -6px; }
+}
+@media (max-width: 768px) {
+  .faq__grid, .apply__grid { grid-template-columns: 1fr; }
+  .form { grid-template-columns: 1fr; }
+  .accordion__panel { padding-left: 20px; }
+}
+@media (max-width: 640px) {
+  .method__cards, .mentors__grid, .works__cards { grid-template-columns: 1fr; }
+  .works__stats { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .hero__notes { min-height: 0; display: flex; flex-direction: column; gap: 20px; }
+  .note { position: static; width: 100%; }
+  .map__node { width: 84px; }
+  .footer__grid { grid-template-columns: 1fr; gap: 26px; }
+}
+
+/* ---------- reduced-motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .btn:hover, .mcard:hover, .wcard:hover, .mentor:hover, .note:hover, .map__node:hover i { transform: none; }
+  html.js [data-tilt], html.js [data-note] { opacity: 1; transform: none; }
+  html.js [data-tilt].note--a.is-inview { transform: rotate(-3deg); }
+  html.js [data-tilt].note--b.is-inview { transform: rotate(2.4deg); }
+  html.js [data-tilt].note--c.is-inview { transform: rotate(-1.6deg); }
+  .map__track { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<!-- ======== 顶部导航 ======== -->
+<header class="nav" id="top">
+  <div class="nav__inner container">
+    <a class="nav__logo" href="#top" aria-label="旷野学堂 OPENFIELD 首页">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M14 3l3.2 7.2L25 11l-5.6 5.4L20.8 25 14 20.8 7.2 25l1.4-8.6L3 11l7.8-.8L14 3Z" stroke="var(--green)" stroke-width="1.8" stroke-linejoin="round"/><circle cx="14" cy="14" r="3.2" fill="var(--mustard)"/></svg>
+      <span class="nav__wordmark">旷野学堂 <em>OPENFIELD</em></span>
+    </a>
+    <nav class="nav__links" aria-label="页面导航">
+      <a href="#method" data-spy>方法</a>
+      <a href="#map" data-spy>课程地图</a>
+      <a href="#mentors" data-spy>导师</a>
+      <a href="#works" data-spy>作品与去向</a>
+      <a href="#faq" data-spy>常见问题</a>
+    </nav>
+    <a class="btn btn--green nav__cta" href="#apply">报名春季班</a>
+    <button class="nav__burger" type="button" data-menu-toggle aria-expanded="false" aria-label="打开菜单"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- 移动端全屏菜单 -->
+<div class="menu" data-menu aria-hidden="true">
+  <nav class="menu__nav" aria-label="全屏菜单">
+    <a href="#method" data-spy>方法</a>
+    <a href="#map" data-spy>课程地图</a>
+    <a href="#mentors" data-spy>导师</a>
+    <a href="#works" data-spy>作品与去向</a>
+    <a href="#faq" data-spy>常见问题</a>
+    <a href="#apply" class="menu__cta">报名春季班 →</a>
+  </nav>
+  <p class="menu__meta">2026 春季班 · 4 月 13 日开课 · 余位 9 / 24<br><a href="mailto:hi@openfield.school">hi@openfield.school</a></p>
+</div>
+
+<main>
+  <!-- ======== 首屏：便签排版 ======== -->
+  <section class="hero" id="hero">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <p class="hero__kicker">OPENFIELD · 12 周创意训练营 · 第 9 期</p>
+        <h1 class="hero__title">转行这件事，<br><span class="u-sketch">靠作品</span>说话。</h1>
+        <p class="hero__sub">不是刷课，是做项目。12 周、24 人小班、6 次真实 brief 评审——毕业那天，你带走的是一个能拿去面试的作品集。</p>
+        <div class="hero__actions">
+          <a class="btn btn--green" href="#apply">报名 2026 春季班</a>
+          <a class="btn btn--line" href="#map">先看 12 周地图 ↓</a>
+        </div>
+        <p class="hero__meta">¥6,800 / 期 · 4 月 13 日开课 · 每周一 / 四晚直播</p>
+      </div>
+      <div class="hero__notes" aria-hidden="false">
+        <article class="note note--a" data-tilt>
+          <p>「第 6 周我把课程网站写上线了，面试官当场打开看。」</p>
+          <footer>—— 阿禾，W6 结课，转岗 UI 设计</footer>
+        </article>
+        <article class="note note--b" data-tilt>
+          <p>「作业不是练习题，是真品牌 brief。被评审怼过三次，值。」</p>
+          <footer>—— 大树，W12 毕业，自由插画接单</footer>
+        </article>
+        <article class="note note--c" data-tilt>
+          <p>「24 个人的班，导师真的记得每个人的进度。」</p>
+          <footer>—— Momo，W3 在读</footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== 方法 ======== -->
+  <section class="method" id="method">
+    <div class="container">
+      <div class="method__head">
+        <p class="kicker">01 · 方法 The Way</p>
+        <h2>在线教育的三个老问题，<br>我们用笨办法解决。</h2>
+      </div>
+      <div class="method__cards">
+        <article class="mcard" data-note>
+          <span class="mcard__no">No.1</span>
+          <h3>做中学</h3>
+          <p>每周一个真实产出：一张海报、一个页面、一次提案。看会的都是错觉，做出来的才算数。</p>
+          <ul class="mcard__tags"><li>6 个真实 brief</li><li>每周作业</li></ul>
+        </article>
+        <article class="mcard" data-note>
+          <span class="mcard__no">No.2</span>
+          <h3>有作品</h3>
+          <p>从第 1 周就开始搭你的作品集网站，每周往上放一件新东西。毕业时它已经迭代了 12 个版本。</p>
+          <ul class="mcard__tags"><li>作品集网站</li><li>12 周持续迭代</li></ul>
+        </article>
+        <article class="mcard" data-note>
+          <span class="mcard__no">No.3</span>
+          <h3>有反馈</h3>
+          <p>双周直播评审，导师逐件点评；小班群里 24 小时内必回。卡住的地方，不会让你自己过夜。</p>
+          <ul class="mcard__tags"><li>双周评审</li><li>24h 内答疑</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== 招牌交互：12 周课程地图 ======== -->
+  <section class="map" id="map">
+    <div class="container">
+      <div class="map__head">
+        <p class="kicker">02 · 课程地图 The 12-Week Map</p>
+        <h2>12 周，一根线拉到底。</h2>
+        <p class="map__hint">横向拖动时间线（或用左右箭头），点击节点展开当周大纲。</p>
+      </div>
+      <div class="map__viewport">
+        <button class="map__arrow map__arrow--l" type="button" aria-label="向左滚动时间线"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M11 3L5 9l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="map__track" id="mapTrack" tabindex="0" aria-label="12 周课程时间线，可左右滚动">
+          <div class="map__line" aria-hidden="true"></div>
+          <!-- 12 个节点由 JS 生成 -->
+        </div>
+        <button class="map__arrow map__arrow--r" type="button" aria-label="向右滚动时间线"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M7 3l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+      <div class="map__accordion accordion" id="weekAccordion">
+        <!-- 12 周手风琴由 JS 生成 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== 导师 ======== -->
+  <section class="mentors" id="mentors">
+    <div class="container">
+      <div class="mentors__head">
+        <p class="kicker">03 · 导师 Mentors</p>
+        <h2>白天在一线干活，<br>晚上来带你做东西。</h2>
+      </div>
+      <div class="mentors__grid">
+        <article class="mentor" data-note>
+          <span class="img-ph mentor__ph" data-img="workshop" data-ph-label="主讲导师 老猫" style="--ph:linear-gradient(160deg,#EFE6D2,#DCE3CF)"><img src="https://images.unsplash.com/photo-1560831340-b9679dc9e9f0?auto=format&fit=crop&w=1600&q=80" alt="a group of people standing around a table" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('img-ph--error');this.remove()"></span>
+          <h3>老猫 <span>主讲 · 视觉与品牌</span></h3>
+          <p>前 4A 美术指导，独立设计工作室合伙人，带过 6 期训练营。评审风格：直接，但每次都给你下一步。</p>
+        </article>
+        <article class="mentor" data-note>
+          <span class="img-ph mentor__ph" data-img="desk_sketch" data-ph-label="主讲导师 陈屿" style="--ph:linear-gradient(160deg,#EBE4D4,#D8DECC)"><img src="https://images.unsplash.com/photo-1635183783375-98e857771351?auto=format&fit=crop&w=1600&q=80" alt="a person sitting at a desk with a pen in their hand" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('img-ph--error');this.remove()"></span>
+          <h3>陈屿 <span>主讲 · 创意编程</span></h3>
+          <p>创意技术师，为美术馆与品牌做过 30+ 交互装置。负责 W7 动效与 W10 创意编程模块。</p>
+        </article>
+        <article class="mentor" data-note>
+          <span class="img-ph mentor__ph" data-img="students" data-ph-label="带教导师 周周" style="--ph:linear-gradient(160deg,#F0E8D6,#DEE2CE)"><img src="https://images.unsplash.com/photo-1751199200315-ec34e0a79cf5?auto=format&fit=crop&w=1600&q=80" alt="People sit and work inside a &quot;cafe happy&quot;" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('img-ph--error');this.remove()"></span>
+          <h3>周周 <span>带教 · 作品集冲刺</span></h3>
+          <p>互联网大厂高级设计师，靠 12 页作品集完成两次跳槽。负责你最后一周的简历与面试作品串讲。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== 学员作品与去向 ======== -->
+  <section class="works" id="works">
+    <div class="container">
+      <div class="works__head">
+        <p class="kicker">04 · 作品与去向 Outcomes</p>
+        <h2>结果比承诺诚实。</h2>
+      </div>
+      <dl class="works__stats">
+        <div class="wstat"><dt data-count="24">0</dt><dd>每期小班人数，从不扩招</dd></div>
+        <div class="wstat"><dt data-count="6">0</dt><dd>次真实 brief 评审</dd></div>
+        <div class="wstat"><dt data-count="84" data-suffix="%">0</dt><dd>近三期学员三个月内转岗 / 接单</dd></div>
+        <div class="wstat"><dt data-count="12">0</dt><dd>周后作品集上线</dd></div>
+      </dl>
+      <div class="works__cards">
+        <article class="wcard" data-note>
+          <span class="img-ph wcard__ph" data-img="desk_sketch" data-ph-label="学员作品 手账式品牌提案" style="--ph:linear-gradient(150deg,#F0E9D8,#DFE3CF)"><img src="https://images.unsplash.com/photo-1617850332221-2c039479d407?auto=format&fit=crop&w=1600&q=80" alt="text" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('img-ph--error');this.remove()"></span>
+          <p class="wcard__meta">W8 · 品牌 brief</p>
+          <h3>山茶咖啡视觉提案</h3>
+          <p>阿禾 · 第 8 期 → 现品牌设计岗</p>
+        </article>
+        <article class="wcard" data-note>
+          <span class="img-ph wcard__ph" data-img="workshop" data-ph-label="学员作品 工作坊记录" style="--ph:linear-gradient(150deg,#EDE5D2,#DCE0CD)"><img src="https://images.unsplash.com/photo-1522065893269-6fd20f6d7438?auto=format&fit=crop&w=1600&q=80" alt="person holding blue and white tread" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('img-ph--error');this.remove()"></span>
+          <p class="wcard__meta">W10 · 创意编程</p>
+          <h3>会呼吸的海报生成器</h3>
+          <p>大树 · 第 7 期 → 自由创意接单</p>
+        </article>
+        <article class="wcard" data-note>
+          <span class="img-ph wcard__ph" data-img="students" data-ph-label="学员作品 评审现场" style="--ph:linear-gradient(150deg,#F1EADB,#E0E4D0)"><img src="https://images.unsplash.com/photo-1789119066657-04577e4855fd?auto=format&fit=crop&w=1600&q=80" alt="A laptop covered in stickers on a small round table in a cafe" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('img-ph--error');this.remove()"></span>
+          <p class="wcard__meta">W12 · 毕业评审</p>
+          <h3>一人作品集网站合集</h3>
+          <p>第 8 期 24 人 · 21 个网站全部上线</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FAQ ======== -->
+  <section class="faq" id="faq">
+    <div class="container faq__grid">
+      <div class="faq__head">
+        <p class="kicker">05 · 常见问题 FAQ</p>
+        <h2>报名前，<br>先问明白。</h2>
+      </div>
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion__item"><h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="fq-1"><span>零基础能跟上吗？</span><svg class="accordion__chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></h3>
+          <div class="accordion__panel" id="fq-1" hidden><p>可以，但每周要投入 8–10 小时。W1–W4 是设计基础，W5 起进入网页实操，前四周会把非设计背景的同学拉到同一条线上。</p></div></div>
+        <div class="accordion__item"><h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="fq-2"><span>错过直播怎么办？</span><svg class="accordion__chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></h3>
+          <div class="accordion__panel" id="fq-2" hidden><p>所有直播都有回放，保留至结课后 6 个月。但评审课建议尽量参加直播——被当场点评一次，胜过看十遍回放。</p></div></div>
+        <div class="accordion__item"><h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="fq-3"><span>学费之外还有别的费用吗？</span><svg class="accordion__chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></h3>
+          <div class="accordion__panel" id="fq-3" hidden><p>没有。所需软件均提供免费方案或教育优惠指引（Figma 免费版即可完成全部课程），作品集域名自己买的话约 ¥60 / 年。</p></div></div>
+        <div class="accordion__item"><h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="fq-4"><span>报名需要交作品链接吗？</span><svg class="accordion__chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></h3>
+          <div class="accordion__panel" id="fq-4" hidden><p>需要一份「现有的东西」：可以是任何形式——绘画、剪辑、代码、公众号排版都行。它是分班参考，不是门槛。</p></div></div>
+        <div class="accordion__item"><h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="fq-5"><span>开课后可以退款吗？</span><svg class="accordion__chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></h3>
+          <div class="accordion__panel" id="fq-5" hidden><p>开课前 7 天内全额退；开课 2 周内退 50%；之后不再退款，但可转让名额或延后一期。</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== 报名 ======== -->
+  <section class="apply" id="apply">
+    <div class="container apply__grid">
+      <div class="apply__copy">
+        <p class="kicker">06 · 报名 Apply</p>
+        <h2>第 9 期 · 春季班<br><span class="u-sketch">9 / 24</span> 个余位。</h2>
+        <p>4 月 13 日开课，每周一 / 四 20:00–22:00 直播。提交报名表后 48 小时内，带教导师会与你约一次 15 分钟通话。</p>
+        <ul class="apply__facts">
+          <li><strong>¥6,800</strong>/ 期，含全部直播、评审与资料</li>
+          <li><strong>早鸟</strong>3 月 31 日前报名减 ¥600</li>
+          <li><strong>退款</strong>开课前 7 天内可全额退</li>
+        </ul>
+      </div>
+      <div class="apply__formwrap">
+        <form class="form" id="applyForm" novalidate>
+          <div class="field">
+            <label for="a-name">姓名或常用昵称 <i aria-hidden="true">*</i></label>
+            <input id="a-name" name="name" type="text" autocomplete="name" placeholder="作品集上想署的名字">
+            <p class="field__err" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="a-mail">邮箱 <i aria-hidden="true">*</i></label>
+            <input id="a-mail" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+            <p class="field__err" aria-live="polite"></p>
+          </div>
+          <div class="field field--full">
+            <label for="a-link">作品链接 <i aria-hidden="true">*</i></label>
+            <input id="a-link" name="link" type="url" inputmode="url" placeholder="https:// 任意你的作品页面">
+            <p class="field__err" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="a-track">意向方向 <i aria-hidden="true">*</i></label>
+            <select id="a-track" name="track">
+              <option value="">请选择…</option>
+              <option>视觉 / 品牌设计</option>
+              <option>UI / 网页设计</option>
+              <option>创意编程 / 交互</option>
+              <option>还没想好，都想试试</option>
+            </select>
+            <p class="field__err" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="a-hours">每周可投入时间 <i aria-hidden="true">*</i></label>
+            <select id="a-hours" name="hours">
+              <option value="">请选择…</option>
+              <option>8–10 小时</option>
+              <option>10 小时以上</option>
+              <option>不确定，想先聊聊</option>
+            </select>
+            <p class="field__err" aria-live="polite"></p>
+          </div>
+          <div class="field field--full">
+            <label for="a-goal">一句话目标（选填）</label>
+            <textarea id="a-goal" name="goal" rows="3" placeholder="例如：年底前转岗产品设计师"></textarea>
+          </div>
+          <p class="form__summary" aria-live="polite"></p>
+          <button class="btn btn--green form__submit" type="submit">提交报名表</button>
+          <p class="form__hint">提交即表示同意《隐私说明》：信息仅用于本期招生沟通。</p>
+        </form>
+        <div class="form__done" hidden>
+          <svg width="46" height="46" viewBox="0 0 46 46" fill="none" aria-hidden="true"><rect x="4" y="4" width="38" height="38" rx="6" stroke="var(--green)" stroke-width="2"/><path d="M15 23.5l6 6L32 17" stroke="var(--mustard)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>报名表已收到</h3>
+          <p>确认编号 <strong id="doneNo">OF-0000</strong>。带教导师将在 48 小时内发邮件到 <strong id="doneMail"></strong>，与你约 15 分钟通话。</p>
+          <button class="btn btn--line" type="button" id="doneReset">再填一份</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ======== 页脚 ======== -->
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <p class="footer__logo">旷野学堂 <em>OPENFIELD</em></p>
+      <p>做中学 · 有作品 · 有反馈<br>12 周创意训练营，第 9 期招生中</p>
+    </div>
+    <nav class="footer__nav" aria-label="页脚导航">
+      <a href="#method">方法</a><a href="#map">课程地图</a><a href="#mentors">导师</a><a href="#works">作品与去向</a><a href="#faq">常见问题</a><a href="#apply">报名</a>
+    </nav>
+    <div class="footer__contact">
+      <p><a href="mailto:hi@openfield.school">hi@openfield.school</a></p>
+      <p>直播时间：周一 / 四 20:00–22:00</p>
+      <p>线上授课 · 全国可报</p>
+    </div>
+  </div>
+  <div class="container footer__legal">
+    <p>© 2026 OPENFIELD SCHOOL · 京ICP备2026-示例号 · <a href="#top">隐私说明</a> · <a href="#top">退费规则</a></p>
+    <p class="footer__fiction">本站为设计演示，品牌为虚构。</p>
+  </div>
+</footer>
+
+<script>/* base.js — 公共能力：平滑滚动 / 滚动揭示 / 导航高亮 / 全屏菜单 / 自定义光标 / 降级。
+   站点 main.js 按需调用：initLenis() revealOnScroll() anchorSpy() initMenu() initCursor() */
+(function () {
+  'use strict';
+  document.documentElement.classList.add('js');
+  /* QA 探针：收集未捕获错误，供浏览器质检读取 */
+  window.__pageErrors = [];
+  window.addEventListener('error', function (e) { window.__pageErrors.push(String(e.message || e)); });
+  window.addEventListener('unhandledrejection', function (e) { window.__pageErrors.push('rejection: ' + String(e.reason)); });
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var hasGSAP = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
+  if (hasGSAP) gsap.registerPlugin(ScrollTrigger);
+  window.__BASE__ = { reduced: reduced, fine: fine, hasGSAP: hasGSAP };
+
+  /* —— 平滑滚动（触屏 / reduced-motion 自动跳过）—— */
+  window.initLenis = function () {
+    if (reduced.matches || typeof Lenis === 'undefined') return null;
+    var lenis = new Lenis({ lerp: 0.1 });
+    window.__lenis = lenis;
+    if (hasGSAP) {
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
+      gsap.ticker.lagSmoothing(0);
+    } else {
+      (function raf(t) { lenis.raf(t); requestAnimationFrame(raf); })(0);
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var id = a.getAttribute('href');
+        if (id.length > 1) {
+          var el = document.querySelector(id);
+          if (el) { e.preventDefault(); lenis.scrollTo(el, { offset: -(window.__BASE_ANCHOR_OFFSET || 80) }); }
+        }
+      });
+    });
+    return lenis;
+  };
+
+  /* —— 滚动揭示：GSAP 优先，回退 IntersectionObserver —— */
+  window.revealOnScroll = function (selector) {
+    var els = document.querySelectorAll(selector || '[data-reveal]');
+    if (!els.length) return;
+    if (reduced.matches) { els.forEach(function (el) { el.classList.add('is-inview'); }); return; }
+    if (hasGSAP) {
+      els.forEach(function (el) {
+        gsap.fromTo(el, { y: 36, autoAlpha: 0 }, {
+          y: 0, autoAlpha: 1, duration: 0.9, ease: 'power3.out',
+          delay: parseFloat(el.getAttribute('data-reveal-delay') || 0),
+          scrollTrigger: { trigger: el, start: 'top 85%', once: true }
+        });
+      });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('is-inview'); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(function (el) { io.observe(el); });
+    }
+  };
+
+  /* —— 导航章节高亮：给导航链接加 data-spy，对应 section 需有同名 id —— */
+  window.anchorSpy = function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('a[data-spy]'));
+    if (!links.length) return;
+    var map = {};
+    links.forEach(function (l) { map[l.getAttribute('href').slice(1)] = l; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting && map[en.target.id]) {
+          links.forEach(function (l) { l.classList.remove('is-active'); });
+          map[en.target.id].classList.add('is-active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    Object.keys(map).forEach(function (id) {
+      var s = document.getElementById(id); if (s) io.observe(s);
+    });
+    /* 带 data-spy-clear 的区块（如首屏）进入视口时清除全部高亮 */
+    document.querySelectorAll('[data-spy-clear]').forEach(function (s) {
+      var ioClear = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) links.forEach(function (l) { l.classList.remove('is-active'); });
+        });
+      }, { rootMargin: '-30% 0px -60% 0px' });
+      ioClear.observe(s);
+    });
+  };
+
+  /* —— 全屏菜单：[data-menu-toggle] + [data-menu]（样式由各站皮肤负责） —— */
+  window.initMenu = function () {
+    var btn = document.querySelector('[data-menu-toggle]');
+    var overlay = document.querySelector('[data-menu]');
+    if (!btn || !overlay) return;
+    function set(open) {
+      overlay.classList.toggle('is-open', open);
+      btn.classList.toggle('is-open', open);
+      btn.setAttribute('aria-expanded', String(open));
+      document.documentElement.classList.toggle('menu-locked', open);
+      if (window.__lenis) open ? window.__lenis.stop() : window.__lenis.start();
+    }
+    btn.addEventListener('click', function () { set(!overlay.classList.contains('is-open')); });
+    overlay.addEventListener('click', function (e) {
+      if (e.target.closest('a') || e.target === overlay) set(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && overlay.classList.contains('is-open')) set(false);
+    });
+  };
+
+  /* —— 自定义光标：元素加 data-cursor="drag|view|hover" 可选 data-cursor-label —— */
+  window.initCursor = function () {
+    if (!fine || reduced.matches) return;
+    var cur = document.createElement('div');
+    cur.className = 'base-cursor';
+    var label = document.createElement('span');
+    cur.appendChild(label);
+    document.body.appendChild(cur);
+    var x = innerWidth / 2, y = innerHeight / 2, tx = x, ty = y, shown = false;
+    addEventListener('mousemove', function (e) {
+      tx = e.clientX; ty = e.clientY;
+      if (!shown) { cur.classList.add('is-on'); shown = true; }
+    }, { passive: true });
+    (function loop() {
+      x += (tx - x) * 0.2; y += (ty - y) * 0.2;
+      cur.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+      requestAnimationFrame(loop);
+    })();
+    document.querySelectorAll('[data-cursor]').forEach(function (el) {
+      el.addEventListener('mouseenter', function () {
+        cur.classList.add('is-active');
+        label.textContent = el.getAttribute('data-cursor-label') || '';
+      });
+      el.addEventListener('mouseleave', function () {
+        cur.classList.remove('is-active'); label.textContent = '';
+      });
+    });
+  };
+})();
+</script>
+<script>/* ==========================================================
+   12 旷野学堂 OPENFIELD — 主脚本（纯原生方案，无 GSAP）
+   招牌交互：12 周课程地图 —— 横向可拖时间线 + 节点/大纲双向联动
+   ========================================================== */
+(function () {
+  'use strict';
+  var reduced = window.__BASE__.reduced.matches;
+
+  /* —— 公共能力（无 Lenis，本站用原生平滑滚动） —— */
+  revealOnScroll('[data-reveal]');
+  anchorSpy();
+  initMenu();
+
+  /* —— 手绘下划线：注入 SVG 并做描边 —— */
+  (function sketchUnderline() {
+    document.querySelectorAll('.u-sketch').forEach(function (el, idx) {
+      var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('viewBox', '0 0 200 20');
+      svg.setAttribute('preserveAspectRatio', 'none');
+      svg.setAttribute('aria-hidden', 'true');
+      var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      var d = idx % 2 === 0
+        ? 'M3 13 C 42 5, 92 16, 128 9 S 186 7, 197 11'
+        : 'M3 10 C 50 16, 104 4, 142 11 S 184 15, 197 8';
+      path.setAttribute('d', d);
+      svg.appendChild(path);
+      el.appendChild(svg);
+      if (reduced) return;
+      var len = 230;
+      path.style.strokeDasharray = len;
+      path.style.strokeDashoffset = len;
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) {
+            path.style.transition = 'stroke-dashoffset 1.3s cubic-bezier(0.16,1,0.3,1) 0.35s';
+            path.style.strokeDashoffset = '0';
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.6 });
+      io.observe(el);
+    });
+  })();
+
+  /* —— 便签 / 笔记卡 stagger 入场 —— */
+  (function staggerNotes() {
+    var els = document.querySelectorAll('[data-tilt], [data-note]');
+    if (!els.length) return;
+    if (reduced) { els.forEach(function (el) { el.classList.add('is-inview'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      var batch = 0;
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          en.target.style.transitionDelay = (batch * 0.09) + 's';
+          en.target.classList.add('is-inview');
+          io.unobserve(en.target);
+          batch++;
+        }
+      });
+    }, { threshold: 0.15 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+
+  /* —— 12 周数据 —— */
+  var WEEKS = [
+    { t: '版式与网格', b: '看懂好设计的底层结构：栅格、留白与视觉层级。', k: ['单页杂志版式', '栅格练习'] },
+    { t: '字体系统', b: '字号阶梯、行高与中西文混排，建立可复用的字库习惯。', k: ['字体海报', '字阶规范'] },
+    { t: '色彩与图像', b: '从情绪板到调色板，学会「限制颜色」而不是堆颜色。', k: ['调色板', '情绪板'] },
+    { t: 'Figma 工作流', b: '组件、样式与自动布局，把想法快速变成可交付稿。', k: ['组件库', '高保真稿'] },
+    { t: 'HTML / CSS 入门', b: '第一行代码：盒子、弹性布局，把设计稿翻译成网页。', k: ['个人页面 v1'] },
+    { t: '响应式布局', b: '一套代码适配手机到桌面，你的作品集网站同步上线。', k: ['作品集网站上线'] },
+    { t: '动效基础', b: '过渡、缓动与滚动叙事，让页面「动得有理由」。', k: ['微交互动效'] },
+    { t: '品牌 Brief I', b: '真实客户项目开工：需求解读、竞品与第一轮提案。', k: ['品牌提案 v1'] },
+    { t: '品牌 Brief II', b: '中期评审：被怼，然后改好。修订稿与落地页产出。', k: ['修订提案', '落地页'] },
+    { t: '创意编程入门', b: 'Canvas 与 SVG：给作品集加一件「会动的东西」。', k: ['生成式海报'] },
+    { t: '作品集冲刺', b: '网站打磨、案例文案与自我叙述，像产品一样打磨自己。', k: ['作品集 v2', '案例文案'] },
+    { t: '毕业评审', b: '导师终审 + 简历串讲 + 面试模拟，带作品离场。', k: ['毕业评审', '面试模拟'] }
+  ];
+
+  /* —— 招牌交互：时间线 + 大纲手风琴 —— */
+  (function weekMap() {
+    var track = document.getElementById('mapTrack');
+    var acc = document.getElementById('weekAccordion');
+    if (!track || !acc) return;
+
+    var fragN = document.createDocumentFragment();
+    var fragA = document.createDocumentFragment();
+    var nodes = [];
+    var items = [];
+
+    WEEKS.forEach(function (w, i) {
+      var n = document.createElement('button');
+      n.type = 'button';
+      n.className = 'map__node';
+      n.setAttribute('aria-label', '第 ' + (i + 1) + ' 周：' + w.t);
+      n.innerHTML = '<i>W' + (i + 1) + '</i><b>' + w.t + '</b>';
+      fragN.appendChild(n);
+      nodes.push(n);
+
+      var item = document.createElement('div');
+      item.className = 'accordion__item';
+      item.innerHTML =
+        '<h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="wk-' + (i + 1) + '">' +
+        '<span><span class="wk">W' + (i + 1) + '</span>' + w.t + '</span>' +
+        '<svg class="accordion__chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>' +
+        '</button></h3>' +
+        '<div class="accordion__panel" id="wk-' + (i + 1) + '" hidden><p>' + w.b + '</p><ul>' +
+        w.k.map(function (k) { return '<li>' + k + '</li>'; }).join('') +
+        '</ul></div>';
+      fragA.appendChild(item);
+      items.push(item);
+    });
+    track.appendChild(fragN);
+    acc.appendChild(fragA);
+
+    var active = -1;
+    function setActive(i) {
+      if (i === active) return;
+      active = i;
+      nodes.forEach(function (n, j) { n.classList.toggle('is-active', j === i); });
+      items.forEach(function (item, j) {
+        var btn = item.querySelector('.accordion__btn');
+        var panel = item.querySelector('.accordion__panel');
+        var open = j === i;
+        item.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', String(open));
+        panel.hidden = !open;
+      });
+      if (i >= 0) {
+        nodes[i].scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'nearest', inline: 'center' });
+        items[i].scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'nearest' });
+      }
+    }
+
+    nodes.forEach(function (n, i) {
+      n.addEventListener('click', function () { setActive(i); });
+    });
+    items.forEach(function (item, i) {
+      item.querySelector('.accordion__btn').addEventListener('click', function () { setActive(i); });
+    });
+    setActive(0);
+
+    /* 横向拖拽（桌面鼠标；移动端原生滑动） */
+    var isDown = false, startX = 0, startLeft = 0, moved = false;
+    track.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse') return;
+      isDown = true; moved = false;
+      startX = e.clientX; startLeft = track.scrollLeft;
+      track.classList.add('is-drag');
+    });
+    window.addEventListener('pointermove', function (e) {
+      if (!isDown) return;
+      var dx = e.clientX - startX;
+      if (Math.abs(dx) > 4) moved = true;
+      track.scrollLeft = startLeft - dx;
+    });
+    window.addEventListener('pointerup', function () { isDown = false; track.classList.remove('is-drag'); });
+    /* 拖拽后拦截误触点击 */
+    track.addEventListener('click', function (e) {
+      if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+    }, true);
+
+    /* 左右箭头 */
+    var step = 210;
+    document.querySelector('.map__arrow--l').addEventListener('click', function () { track.scrollBy({ left: -step, behavior: reduced ? 'auto' : 'smooth' }); });
+    document.querySelector('.map__arrow--r').addEventListener('click', function () { track.scrollBy({ left: step, behavior: reduced ? 'auto' : 'smooth' }); });
+  })();
+
+  /* —— 数字计数 —— */
+  (function counters() {
+    var nums = document.querySelectorAll('[data-count]');
+    if (!nums.length) return;
+    var run = function (el) {
+      var target = parseInt(el.getAttribute('data-count'), 10);
+      var suffix = el.getAttribute('data-suffix') || '';
+      if (reduced) { el.textContent = target + suffix; return; }
+      var t0 = null;
+      function step(ts) {
+        if (!t0) t0 = ts;
+        var p = Math.min((ts - t0) / 1300, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    };
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { run(en.target); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.6 });
+    nums.forEach(function (n) { io.observe(n); });
+  })();
+
+  /* —— 报名表单：含作品链接 URL 校验 —— */
+  (function applyForm() {
+    var form = document.getElementById('applyForm');
+    if (!form) return;
+    var done = document.querySelector('.form__done');
+    var summary = form.querySelector('.form__summary');
+
+    var urlOk = function (v) {
+      try {
+        var u = new URL(v.trim());
+        return u.protocol === 'http:' || u.protocol === 'https:';
+      } catch (err) { return false; }
+    };
+    var rules = {
+      name: function (v) { return v.trim().length >= 1 ? '' : '请填写姓名或常用昵称'; },
+      email: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ? '' : '请填写有效邮箱地址'; },
+      link: function (v) { return urlOk(v) ? '' : '请填写以 http(s):// 开头的有效作品链接'; },
+      track: function (v) { return v ? '' : '请选择意向方向'; },
+      hours: function (v) { return v ? '' : '请选择每周可投入时间'; }
+    };
+    var setErr = function (input, msg) {
+      var field = input.closest('.field');
+      field.classList.toggle('is-error', !!msg);
+      input.setAttribute('aria-invalid', msg ? 'true' : 'false');
+      field.querySelector('.field__err').textContent = msg;
+    };
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var firstBad = null, bad = 0;
+      Object.keys(rules).forEach(function (name) {
+        var input = form.elements[name];
+        var msg = rules[name](input.value);
+        setErr(input, msg);
+        if (msg) { bad++; if (!firstBad) firstBad = input; }
+      });
+      if (firstBad) {
+        summary.textContent = '还有 ' + bad + ' 项需要补充，已为你标出。';
+        firstBad.focus();
+        return;
+      }
+      summary.textContent = '';
+      var btn = form.querySelector('.form__submit');
+      btn.disabled = true;
+      btn.textContent = '正在提交…';
+      window.setTimeout(function () {
+        document.getElementById('doneNo').textContent = 'OF-' + String(Math.floor(100 + Math.random() * 900)) + '-09';
+        document.getElementById('doneMail').textContent = form.elements.email.value.trim();
+        form.hidden = true;
+        done.hidden = false;
+        btn.disabled = false;
+        btn.textContent = '提交报名表';
+      }, 700);
+    });
+    form.addEventListener('input', function (e) {
+      if (rules[e.target.name]) setErr(e.target, '');
+    });
+    document.getElementById('doneReset').addEventListener('click', function () {
+      form.reset();
+      form.hidden = false;
+      done.hidden = true;
+      form.elements.name.focus();
+    });
+  })();
+})();
+</script>
+</body>
+</html>

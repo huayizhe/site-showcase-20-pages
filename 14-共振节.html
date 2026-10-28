@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>共振节 RESONATE 2026 ｜ 三日双舞台 · 独立音乐现场</title>
+  <meta name="description" content="共振节 RESONATE 2026——6.19–6.21，湖畔营地三日双舞台，40+ 组独立乐队与电子音乐人。单日 ¥280，三日 ¥680。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500;700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>/* base.css — 案例库公共底座（reset / 无障碍 / 图片兜底 / 揭示 / 光标 / 降级）
+   各站在其上写自己的皮肤；除工具维护者外不得修改本文件。 */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+html.menu-locked { overflow: hidden; }
+body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; min-height: 100vh; }
+img, svg, video, canvas { display: block; max-width: 100%; }
+button, input, select, textarea { font: inherit; color: inherit; background: none; border: 0; }
+button { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+:focus { outline: none; }
+:focus-visible { outline: 3px solid var(--accent, #ff4d00); outline-offset: 3px; border-radius: 2px; }
+::selection { background: var(--accent, #ff4d00); color: var(--accent-contrast, #fff); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.container { width: min(100% - clamp(48px, 8vw, 176px), var(--container, 1360px)); margin-inline: auto; }
+
+/* 图片兜底：容器带渐变与 aspect-ratio，图片失败后仍保持布局 */
+.img-ph { position: relative; display: block; overflow: hidden; background: var(--ph, linear-gradient(135deg, #e6e0d2, #c9d1c0)); }
+.img-ph > img { width: 100%; height: 100%; object-fit: cover; }
+.img-ph--error::after { content: attr(data-ph-label); position: absolute; inset: 0; display: grid; place-items: center; font: 600 .72rem/1 var(--font-sans, system-ui, sans-serif); letter-spacing: .22em; text-transform: uppercase; color: rgb(0 0 0 / .26); }
+
+/* 滚动揭示（html.js 由 base.js 添加；无 JS / reduced-motion 时直接可见） */
+html.js [data-reveal] { opacity: 0; transform: translateY(36px); transition: opacity .8s cubic-bezier(.16, 1, .3, 1), transform .8s cubic-bezier(.16, 1, .3, 1); }
+html.js [data-reveal].is-inview { opacity: 1; transform: none; }
+
+/* 自定义光标（仅精确指针设备；站点可用 .base-cursor 覆盖样式） */
+.base-cursor { position: fixed; left: 0; top: 0; z-index: 9999; pointer-events: none; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 999px; background: #fff; mix-blend-mode: difference; opacity: 0; transition: width .25s, height .25s, margin .25s, opacity .3s; display: grid; place-items: center; }
+.base-cursor.is-on { opacity: 1; }
+.base-cursor.is-active { width: 64px; height: 64px; margin: -32px 0 0 -32px; }
+.base-cursor span { font: 600 10px/1 var(--font-sans, system-ui, sans-serif); letter-spacing: .14em; text-transform: uppercase; color: #000; opacity: 0; transition: opacity .2s; }
+.base-cursor.is-active span { opacity: 1; }
+@media (hover: none), (pointer: coarse) { .base-cursor { display: none; } }
+
+/* prefers-reduced-motion 全局降级 */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001s !important; animation-iteration-count: 1 !important; transition-duration: .001s !important; }
+  html.js [data-reveal] { opacity: 1 !important; transform: none !important; }
+  .base-cursor { display: none; }
+}
+</style>
+  <style>/* ==========================================================
+   14 共振节 RESONATE — 独立音乐节 · Riso 复古印刷风
+   米纸 #F1E8D7 / Riso 蓝 #2B3FD6 / 荧光粉 #FF6EA9
+   字体：Unbounded + Noto Sans SC
+   语言：套印错位、噪点纸感、票根锯齿、双向大字滚动
+   ========================================================== */
+:root {
+  --paper: #F1E8D7;
+  --paper-2: #E9DEC8;
+  --blue: #2B3FD6;
+  --pink: #FF6EA9;
+  --ink: #22203A;
+  --accent: #2B3FD6;
+  --accent-contrast: #fff;
+  --font-sans: 'Unbounded', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --container: 1280px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-padding-top: 90px; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+/* Riso 纸面噪点 */
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: 80; pointer-events: none;
+  opacity: 0.35; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.55 0 0 0 0 0.52 0 0 0 0 0.45 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+h1, h2, h3 { font-weight: 900; line-height: 1.1; }
+.kicker { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--blue); margin-bottom: 16px; display: block; }
+
+/* 套印错位标题 */
+.riso { color: var(--blue); text-shadow: 4px 3px 0 rgba(255, 110, 169, 0.85), -2px -2px 0 rgba(43, 63, 214, 0.25); }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 30px; font-weight: 700; font-size: 0.92rem; letter-spacing: 0.1em; border: 2.5px solid var(--ink); transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), background 0.35s, color 0.35s; }
+.btn--blue { background: var(--blue); color: #fff; border-color: var(--blue); box-shadow: 5px 4px 0 var(--pink); }
+.btn--blue:hover { transform: translate(2px, 2px); box-shadow: 2px 1px 0 var(--pink); }
+.btn--pink { background: var(--pink); color: var(--ink); border-color: var(--ink); box-shadow: -5px 4px 0 var(--blue); }
+.btn--pink:hover { transform: translate(-2px, 2px); box-shadow: -2px 1px 0 var(--blue); }
+
+/* ---------- 导航 ---------- */
+.nav { position: fixed; inset: 0 0 auto; z-index: 60; padding: 14px 0; background: var(--paper); border-bottom: 2.5px solid var(--ink); }
+.nav__inner { display: flex; align-items: center; gap: 24px; }
+.nav__logo { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 1rem; }
+.nav__wordmark em { font-style: normal; font-size: 0.68em; letter-spacing: 0.2em; color: var(--blue); margin-left: 4px; }
+.nav__links { display: flex; gap: 20px; margin-left: auto; font-size: 0.9rem; font-weight: 500; }
+.nav__links a { position: relative; padding: 6px 2px; }
+.nav__links a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 3px; background: var(--pink); transform: scaleX(0); transform-origin: left; transition: transform 0.35s var(--ease); }
+.nav__links a:hover::after, .nav__links a.is-active::after { transform: scaleX(1); }
+.nav__cta { padding: 11px 22px; font-size: 0.85rem; }
+.nav__burger { display: none; width: 46px; height: 46px; border: 2.5px solid var(--ink); position: relative; margin-left: auto; background: var(--paper); }
+.nav__burger span { position: absolute; left: 11px; right: 11px; height: 2.6px; background: var(--blue); transition: transform 0.35s var(--ease), top 0.35s var(--ease); }
+.nav__burger span:nth-child(1) { top: 14px; }
+.nav__burger span:nth-child(2) { top: 25px; }
+.nav__burger.is-open span:nth-child(1) { top: 19px; transform: rotate(45deg); background: var(--pink); }
+.nav__burger.is-open span:nth-child(2) { top: 19px; transform: rotate(-45deg); }
+
+.menu { position: fixed; inset: 0; z-index: 50; background: var(--blue); color: var(--paper); display: flex; flex-direction: column; justify-content: center; padding: 90px 34px 44px; opacity: 0; visibility: hidden; transition: opacity 0.45s var(--ease), visibility 0.45s; }
+.menu.is-open { opacity: 1; visibility: visible; }
+.menu__nav { display: flex; flex-direction: column; gap: 2px; }
+.menu__nav a { font-size: clamp(1.8rem, 8vw, 2.6rem); font-weight: 900; padding: 10px 0; border-bottom: 2px solid rgba(241, 232, 215, 0.25); color: var(--paper); transform: translateY(18px); opacity: 0; transition: transform 0.5s var(--ease), opacity 0.5s var(--ease), color 0.3s; text-shadow: 3px 2px 0 rgba(255, 110, 169, 0.7); }
+.menu.is-open .menu__nav a { transform: none; opacity: 1; }
+.menu.is-open .menu__nav a:nth-child(2) { transition-delay: 0.05s; }
+.menu.is-open .menu__nav a:nth-child(3) { transition-delay: 0.1s; }
+.menu.is-open .menu__nav a:nth-child(4) { transition-delay: 0.15s; }
+.menu.is-open .menu__nav a:nth-child(5) { transition-delay: 0.2s; }
+.menu__nav a:hover { color: var(--pink); }
+.menu__buy { margin-top: 28px; align-self: flex-start; }
+.menu__meta { margin-top: 22px; font-size: 0.85rem; color: rgba(241, 232, 215, 0.75); line-height: 2; }
+
+/* ---------- 首屏 ---------- */
+.hero { position: relative; padding: clamp(140px, 18vh, 210px) 0 0; overflow: hidden; }
+.hero__meta { display: flex; flex-wrap: wrap; gap: 10px 26px; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.24em; margin-bottom: 28px; }
+.hero__meta span { background: var(--blue); color: var(--paper); padding: 5px 12px; }
+.hero__meta span:nth-child(2) { background: var(--pink); color: var(--ink); }
+.hero__title { font-size: clamp(3rem, 9.5vw, 8.2rem); line-height: 1.02; }
+.hero__en { font-size: 0.52em; letter-spacing: 0.04em; display: inline-block; margin-top: 0.08em; }
+.hero__lead { max-width: 44ch; margin: 30px 0 34px; font-weight: 500; font-size: 1.04rem; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: clamp(36px, 5vw, 60px); }
+
+/* 声波 canvas */
+.wave { position: relative; border-top: 2.5px solid var(--ink); border-bottom: 2.5px solid var(--ink); background: var(--paper-2); }
+.wave canvas { display: block; width: 100%; height: clamp(160px, 24vw, 260px); }
+.wave__tip { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; color: var(--blue); background: rgba(241, 232, 215, 0.85); padding: 4px 14px; border: 1.5px solid var(--blue); }
+
+/* ---------- 阵容大字墙 ---------- */
+.lineup { padding: clamp(70px, 9vw, 120px) 0 clamp(56px, 7vw, 90px); overflow: hidden; }
+.lineup__head { margin-bottom: clamp(30px, 4vw, 52px); }
+.lineup__head h2 { font-size: clamp(2.2rem, 5.4vw, 4.2rem); }
+.lineup__hint { margin-top: 14px; font-size: 0.8rem; color: rgba(34, 32, 58, 0.6); font-weight: 500; }
+.roll { border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); overflow: hidden; padding: 6px 0; }
+.roll + .roll { border-top: 0; }
+.roll--a { background: var(--paper); }
+.roll--b { background: var(--blue); color: var(--paper); transform: rotate(-0.5deg) scale(1.01); }
+.roll--c { background: var(--pink); color: var(--ink); transform: rotate(0.4deg) scale(1.01); }
+.roll--d { background: var(--ink); color: var(--paper); }
+.roll__track { display: inline-block; white-space: nowrap; font-size: clamp(1.5rem, 3.6vw, 2.9rem); font-weight: 900; letter-spacing: 0.02em; padding: 8px 0; animation: rollX 38s linear infinite; }
+.roll__track--rev { animation-direction: reverse; }
+@keyframes rollX { to { transform: translateX(-50%); } }
+
+/* ---------- 双舞台时间表 ---------- */
+.timetable { padding: clamp(70px, 9vw, 120px) 0; background: var(--ink); color: var(--paper); }
+.timetable .kicker { color: var(--pink); }
+.tt__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 20px; }
+.tt__head h2 { font-size: clamp(2rem, 4.6vw, 3.6rem); text-shadow: 3px 2px 0 rgba(255, 110, 169, 0.6); }
+.tt__days { display: flex; gap: 8px; }
+.tt__day { padding: 10px 18px; border: 2px solid var(--paper); font-weight: 700; font-size: 0.9rem; color: var(--paper); transition: background 0.3s var(--ease), color 0.3s var(--ease), transform 0.3s var(--ease); }
+.tt__day:hover { transform: translateY(-2px); }
+.tt__day.is-on { background: var(--pink); border-color: var(--pink); color: var(--ink); }
+.tt__hint { font-size: 0.78rem; letter-spacing: 0.16em; color: rgba(241, 232, 215, 0.6); margin-bottom: 14px; }
+.tt__viewport { overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--pink) transparent; cursor: grab; user-select: none; -webkit-user-select: none; }
+.tt__viewport.is-drag { cursor: grabbing; }
+.tt__viewport:focus-visible { outline-offset: 6px; }
+.tt__grid { display: grid; grid-template-columns: repeat(6, minmax(190px, 1fr)); gap: 12px; min-width: max-content; padding-bottom: 10px; }
+.tt__stage { display: flex; flex-direction: column; justify-content: flex-end; font-weight: 900; font-size: 1.05rem; padding: 14px 10px; border: 2px dashed rgba(241, 232, 215, 0.4); min-height: 150px; }
+.tt__stage small { font-size: 0.7rem; font-weight: 500; color: rgba(241, 232, 215, 0.65); margin-top: 6px; }
+.tt__stage--valley { color: var(--pink); }
+.tt__stage--lake { color: #8FA0FF; }
+.tt__cell { border: 2px solid rgba(241, 232, 215, 0.3); padding: 14px; min-height: 150px; display: flex; flex-direction: column; gap: 6px; transition: transform 0.35s var(--ease), border-color 0.35s var(--ease), background 0.35s var(--ease); }
+.tt__cell:hover { transform: translateY(-4px); border-color: var(--pink); background: rgba(255, 110, 169, 0.08); }
+.tt__cell time { font-size: 0.78rem; font-weight: 700; color: var(--pink); font-variant-numeric: tabular-nums; }
+.tt__cell h3 { font-size: 1.02rem; font-weight: 900; line-height: 1.3; }
+.tt__cell p { font-size: 0.74rem; color: rgba(241, 232, 215, 0.65); margin-top: auto; }
+
+/* ---------- 票务 ---------- */
+.tix { padding: clamp(70px, 9vw, 120px) 0; }
+.tix__grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(36px, 5vw, 80px); align-items: start; }
+.tix__cards h2 { font-size: clamp(2.2rem, 5vw, 4rem); margin-bottom: 34px; }
+.ticket { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 0; margin-bottom: 22px; border: 2.5px solid var(--ink); background: #FFFDF6; box-shadow: 6px 5px 0 rgba(43, 63, 214, 0.9); position: relative; }
+.ticket::before { /* 打孔分隔线 */ content: ""; position: absolute; top: 0; bottom: 0; left: 47.5%; width: 0; border-left: 2.5px dashed var(--ink); }
+.ticket::after { content: ""; position: absolute; left: calc(47.5% - 8px); top: -8px; width: 16px; height: 16px; border-radius: 50%; background: var(--paper); border: 2.5px solid var(--ink); }
+.ticket--hot { background: var(--blue); color: var(--paper); box-shadow: 6px 5px 0 var(--pink); }
+.ticket--hot::before, .ticket--hot::after { border-color: var(--ink); }
+.ticket__stub { padding: 24px 22px; }
+.ticket__type { font-size: 0.9rem; font-weight: 700; letter-spacing: 0.16em; }
+.ticket__price { font-size: clamp(2.4rem, 4vw, 3.4rem); font-weight: 900; line-height: 1.1; }
+.ticket__date { font-size: 0.76rem; margin-top: 8px; opacity: 0.75; }
+.ticket__perms { padding: 24px 22px 24px 30px; display: flex; flex-direction: column; justify-content: center; gap: 10px; font-size: 0.9rem; font-weight: 500; }
+.ticket__perms li { display: flex; gap: 10px; align-items: baseline; }
+.ticket__perms li::before { content: "◆"; font-size: 0.6em; color: var(--pink); }
+.tix__note { font-size: 0.78rem; color: rgba(34, 32, 58, 0.6); }
+
+.tix__formwrap { border: 2.5px solid var(--ink); background: #FFFDF6; padding: clamp(24px, 3vw, 36px); box-shadow: -6px 5px 0 rgba(255, 110, 169, 0.9); }
+.tix__formwrap h3 { font-size: 1.3rem; margin-bottom: 20px; }
+.form { display: grid; gap: 16px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; }
+.field label i { color: var(--pink); font-style: normal; }
+.field input, .field select { border: 2px solid var(--ink); background: var(--paper); padding: 12px 14px; font-size: 0.95rem; width: 100%; transition: border-color 0.3s, background 0.3s; }
+.field input:focus, .field select:focus { border-color: var(--blue); background: #fff; }
+.field.is-error input, .field.is-error select { border-color: #C01440; background: #FBE9EE; }
+.field__err { min-height: 1em; font-size: 0.76rem; font-weight: 700; color: #C01440; }
+.form__summary { font-size: 0.84rem; font-weight: 700; color: #C01440; min-height: 1.3em; }
+.form__submit { width: 100%; }
+.form__submit[disabled] { opacity: 0.6; cursor: wait; transform: none; }
+.form__hint { font-size: 0.74rem; color: rgba(34, 32, 58, 0.6); }
+.form__done { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 20px 0; }
+.form__done h4 { font-size: 1.4rem; font-weight: 900; }
+.form__done p { font-size: 0.92rem; max-width: 34ch; }
+
+/* ---------- 营地与交通 ---------- */
+.info { padding: clamp(70px, 9vw, 120px) 0; background: var(--paper-2); border-top: 2.5px solid var(--ink); }
+.info__head { margin-bottom: clamp(30px, 4vw, 52px); }
+.info__head h2 { font-size: clamp(2.2rem, 5vw, 4rem); }
+.info__scene { margin-bottom: 24px; }
+.info__sph { display: block; aspect-ratio: 21 / 9; border: 2.5px solid var(--ink); box-shadow: 6px 5px 0 rgba(255, 110, 169, 0.9); }
+.info__scene figcaption { margin-top: 10px; font-size: 0.78rem; color: rgba(34, 32, 58, 0.6); letter-spacing: 0.06em; }
+.info__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.icard { border: 2.5px solid var(--ink); background: var(--paper); padding: 26px 22px 30px; transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease); }
+.icard:hover { transform: translate(-3px, -3px); box-shadow: 7px 6px 0 rgba(43, 63, 214, 0.85); }
+.icard h3 { font-size: 1.1rem; margin-bottom: 10px; color: var(--blue); text-shadow: 1.5px 1px 0 rgba(255, 110, 169, 0.7); }
+.icard p { font-size: 0.88rem; }
+
+/* ---------- FAQ ---------- */
+.faq { padding: clamp(70px, 9vw, 120px) 0; }
+.faq__grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(30px, 5vw, 72px); align-items: start; }
+.faq__head h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
+.accordion { display: flex; flex-direction: column; gap: 12px; }
+.accordion__item { border: 2.5px solid var(--ink); background: #FFFDF6; }
+.accordion__item.is-open { box-shadow: 5px 4px 0 rgba(43, 63, 214, 0.8); }
+.accordion__btn { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 18px 20px; text-align: left; font-size: 0.98rem; font-weight: 700; }
+.accordion__chev { flex: none; color: var(--blue); transition: transform 0.4s var(--ease); }
+.accordion__item.is-open .accordion__chev { transform: rotate(180deg); }
+.accordion__panel { padding: 0 20px 20px; font-size: 0.92rem; }
+
+/* ---------- 页脚 ---------- */
+.footer { background: var(--blue); color: var(--paper); padding: clamp(52px, 7vw, 80px) 0 26px; }
+.footer__grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 40px; padding-bottom: 38px; border-bottom: 2px dashed rgba(241, 232, 215, 0.4); }
+.footer__logo { font-size: 1.5rem; font-weight: 900; margin-bottom: 10px; text-shadow: 2px 2px 0 var(--pink); }
+.footer__logo em { font-style: normal; font-size: 0.68em; letter-spacing: 0.22em; }
+.footer__brand p:last-child { font-size: 0.9rem; color: rgba(241, 232, 215, 0.75); }
+.footer__nav { display: grid; grid-template-columns: 1fr; gap: 10px; align-content: start; font-size: 0.92rem; }
+.footer__nav a { color: rgba(241, 232, 215, 0.75); transition: color 0.3s; }
+.footer__nav a:hover { color: var(--pink); }
+.footer__contact { font-size: 0.92rem; display: flex; flex-direction: column; gap: 8px; color: rgba(241, 232, 215, 0.75); }
+.footer__contact a:hover { color: var(--pink); }
+.footer__legal { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; padding-top: 22px; font-size: 0.76rem; color: rgba(241, 232, 215, 0.55); }
+.footer__legal a { text-decoration: underline; text-underline-offset: 3px; }
+.footer__fiction { letter-spacing: 0.08em; }
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 1024px) {
+  .nav__links, .nav__cta { display: none; }
+  .nav__burger { display: block; }
+  .tix__grid { grid-template-columns: 1fr; }
+  .info__grid { grid-template-columns: 1fr 1fr; }
+  .tt__grid { grid-template-columns: repeat(6, minmax(170px, 1fr)); }
+}
+@media (max-width: 768px) {
+  .faq__grid { grid-template-columns: 1fr; }
+  .tt__head { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 640px) {
+  .info__grid { grid-template-columns: 1fr; }
+  .ticket { grid-template-columns: 1fr; }
+  .ticket::before, .ticket::after { display: none; }
+  .ticket__perms { padding: 0 22px 22px; }
+  .footer__grid { grid-template-columns: 1fr; gap: 26px; }
+  .tt__grid { grid-template-columns: repeat(6, 150px); }
+  .tt__stage, .tt__cell { min-height: 130px; }
+}
+
+/* ---------- reduced-motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .roll__track { animation: none; }
+  .btn:hover, .tt__cell:hover, .icard:hover, .tt__day:hover { transform: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ======== 顶部导航 ======== -->
+<header class="nav" id="top">
+  <div class="nav__inner container">
+    <a class="nav__logo" href="#top" aria-label="共振节 RESONATE 首页">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true"><circle cx="13" cy="13" r="3.5" fill="var(--pink)"/><circle cx="13" cy="13" r="8" stroke="var(--blue)" stroke-width="2"/><circle cx="13" cy="13" r="12" stroke="var(--blue)" stroke-width="1.4" opacity=".5"/></svg>
+      <span class="nav__wordmark">共振节 <em>RESONATE</em></span>
+    </a>
+    <nav class="nav__links" aria-label="页面导航">
+      <a href="#lineup" data-spy>阵容</a>
+      <a href="#timetable" data-spy>时间表</a>
+      <a href="#tix" data-spy>票务</a>
+      <a href="#info" data-spy>营地与交通</a>
+      <a href="#faq" data-spy>常见问题</a>
+    </nav>
+    <a class="btn btn--blue nav__cta" href="#tix">买票 ¥280 起</a>
+    <button class="nav__burger" type="button" data-menu-toggle aria-expanded="false" aria-label="打开菜单"><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- 移动端全屏菜单 -->
+<div class="menu" data-menu aria-hidden="true">
+  <nav class="menu__nav" aria-label="全屏菜单">
+    <a href="#lineup" data-spy>阵容</a>
+    <a href="#timetable" data-spy>时间表</a>
+    <a href="#tix" data-spy>票务</a>
+    <a href="#info" data-spy>营地与交通</a>
+    <a href="#faq" data-spy>常见问题</a>
+  </nav>
+  <a class="btn btn--pink menu__buy" href="#tix">买票 ¥280 起</a>
+  <p class="menu__meta">6.19 – 6.21 · 南屿湖畔营地<br>双舞台 · 40+ 组音乐人</p>
+</div>
+
+<main>
+  <!-- ======== 首屏 ======== -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <p class="hero__meta"><span>6.19 — 6.21</span><span>南屿湖畔营地</span><span>三日 · 双舞台</span></p>
+      <h1 class="hero__title riso">共振节<br><span class="hero__en">RESONATE<br>FESTIVAL</span></h1>
+      <p class="hero__lead">四十多组音乐人，两座隔水相望的舞台。日落后的湖面会把低音还给你——这是属于耳朵的三个夏天日夜。</p>
+      <div class="hero__actions">
+        <a class="btn btn--blue" href="#tix">三日通票 ¥680</a>
+        <a class="btn btn--pink" href="#timetable">看时间表</a>
+      </div>
+    </div>
+    <!-- 招牌交互：声波 canvas -->
+    <div class="wave" aria-hidden="true">
+      <canvas id="waveCanvas"></canvas>
+      <p class="wave__tip">↑ 移动鼠标 / 滚动页面，湖面会回应你</p>
+    </div>
+  </section>
+
+  <!-- ======== 阵容大字墙 ======== -->
+  <section class="lineup" id="lineup">
+    <div class="lineup__head container">
+      <p class="kicker">01 · 阵容 Line-up</p>
+      <h2 class="riso">四十多组名字，<br>一次唱完。</h2>
+      <p class="lineup__hint">以下按出场序滚动 · 完整排期见时间表</p>
+    </div>
+    <div class="roll roll--a" aria-hidden="true"><div class="roll__track" data-roll>白鲸通讯 · 荷电粒子 · 卧轨的熊 · 棱镜商店 · 弱水三千 · 夜航西飞 · 无声放映 · 咸水鳄 · 银河修理员 · </div></div>
+    <div class="roll roll--b" aria-hidden="true"><div class="roll__track roll__track--rev" data-roll>观测者 · 热带雨林切片 · 磁场偏转 · 落日车道 · 深潜器 · 千面 · 雾中风景 · 波粒二象 · 终点站朋友们 · </div></div>
+    <div class="roll roll--c" aria-hidden="true"><div class="roll__track" data-roll>夜行鹿 · 塑料花与喷泉 · 海市蜃楼旅行社 · 低频呼救 · 粉色噪音清洁队 · 空罐头交响 · 仲夏电流 · 薄暮周刊 · 赤潮电台 · </div></div>
+    <div class="roll roll--d" aria-hidden="true"><div class="roll__track roll__track--rev" data-roll>慢速快门 · 候鸟博物馆 · 霓虹废墟 · 深空信标 · 微量浪漫 · 平行客栈 · 折叠月亮 · 声呐花园 · 午夜纺织机 · 回南天合唱团 · </div></div>
+  </section>
+
+  <!-- ======== 双舞台时间表 ======== -->
+  <section class="timetable" id="timetable">
+    <div class="container">
+      <div class="tt__head">
+        <p class="kicker">02 · 时间表 Timetable</p>
+        <h2 class="riso">两座舞台，<br>隔水相望。</h2>
+        <div class="tt__days" role="tablist" aria-label="选择日期">
+          <button type="button" role="tab" class="tt__day is-on" aria-selected="true" data-day="d1">6.19 周五</button>
+          <button type="button" role="tab" class="tt__day" aria-selected="false" data-day="d2">6.20 周六</button>
+          <button type="button" role="tab" class="tt__day" aria-selected="false" data-day="d3">6.21 周日</button>
+        </div>
+      </div>
+      <p class="tt__hint">← 横向拖动查看全天 →</p>
+      <div class="tt__viewport" id="ttViewport">
+        <div class="tt__grid" id="ttGrid" tabindex="0" aria-label="当日演出时间表，可左右滚动">
+          <!-- 由 JS 渲染 -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== 票务 ======== -->
+  <section class="tix" id="tix">
+    <div class="container tix__grid">
+      <div class="tix__cards">
+        <p class="kicker">03 · 票务 Tickets</p>
+        <h2 class="riso">选好日子，<br>湖边见。</h2>
+        <article class="ticket" data-reveal>
+          <div class="ticket__stub">
+            <p class="ticket__type">单日票</p>
+            <p class="ticket__price">¥280</p>
+            <p class="ticket__date">周五 / 六 / 日 任选一天</p>
+          </div>
+          <ul class="ticket__perms">
+            <li>双舞台全时段入场</li>
+            <li>市集与露营区开放区</li>
+            <li>入场手环当日有效</li>
+          </ul>
+        </article>
+        <article class="ticket ticket--hot" data-reveal data-reveal-delay="0.12">
+          <div class="ticket__stub">
+            <p class="ticket__type">三日通票</p>
+            <p class="ticket__price">¥680</p>
+            <p class="ticket__date">6.19 – 6.21 全程有效</p>
+          </div>
+          <ul class="ticket__perms">
+            <li>三日双舞台任意出入</li>
+            <li>纪念 T 恤 + 金属手环</li>
+            <li>露营位优先预约权</li>
+          </ul>
+        </article>
+        <p class="tix__note">* 学生与 12 岁以下半价，现场凭证件办理；票为实名电子票，入场需身份证。</p>
+      </div>
+      <div class="tix__formwrap">
+        <h3>留下邮箱，开票第一时间提醒你</h3>
+        <form class="form" id="tixForm" novalidate>
+          <div class="field">
+            <label for="t-mail">邮箱 <i aria-hidden="true">*</i></label>
+            <input id="t-mail" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+            <p class="field__err" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="t-type">意向票种 <i aria-hidden="true">*</i></label>
+            <select id="t-type" name="type">
+              <option value="">请选择…</option>
+              <option>单日票 ¥280</option>
+              <option>三日通票 ¥680</option>
+              <option>都想要，先提醒我</option>
+            </select>
+            <p class="field__err" aria-live="polite"></p>
+          </div>
+          <p class="form__summary" aria-live="polite"></p>
+          <button class="btn btn--blue form__submit" type="submit">订阅开票提醒</button>
+          <p class="form__hint">提交即表示同意《隐私说明》：邮箱仅用于本次开票通知，可随时退订。</p>
+        </form>
+        <div class="form__done" hidden>
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="3" y="10" width="38" height="24" rx="3" stroke="var(--blue)" stroke-width="2"/><path d="M3 18h6M3 26h6M35 18h6M35 26h6" stroke="var(--blue)" stroke-width="2" stroke-dasharray="3 3"/><circle cx="22" cy="22" r="7" stroke="var(--pink)" stroke-width="2"/></svg>
+          <h4>订阅成功</h4>
+          <p>开票通知将发送至 <strong id="doneMail"></strong>。湖边见！</p>
+          <button class="btn btn--pink" type="button" id="doneReset">再订阅一个邮箱</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== 营地与交通 ======== -->
+  <section class="info" id="info">
+    <div class="container">
+      <div class="info__head">
+        <p class="kicker">04 · 营地与交通 Camping &amp; Transport</p>
+        <h2 class="riso">三天两夜，<br>住在湖边。</h2>
+      </div>
+      <figure class="info__scene" data-reveal>
+        <span class="img-ph info__sph" data-img="festival_stage" data-ph-label="湖畔主舞台夜景" style="--ph:linear-gradient(150deg,#3A3F63,#22203A)"><img src="https://images.unsplash.com/photo-1619229667009-e7e51684e8e6?auto=format&fit=crop&w=1600&q=80" alt="a large crowd of people at a concert" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('img-ph--error');this.remove()"></span>
+        <figcaption>山谷舞台 · 去年日落压轴现场（资料影像）</figcaption>
+      </figure>
+      <div class="info__grid">
+        <article class="icard" data-reveal>
+          <h3>自带帐篷区</h3>
+          <p>湖畔草坪分区划位，¥120 / 顶 / 晚，含淋浴与充电桩。安静区与夜猫区分开，互不打扰。</p>
+        </article>
+        <article class="icard" data-reveal data-reveal-delay="0.08">
+          <h3>拎包入住帐篷</h3>
+          <p>双人帐篷 + 防潮垫 + 睡袋 ¥380 / 晚，每天 14:00 后入住。数量有限，建议随票预约。</p>
+        </article>
+        <article class="icard" data-reveal data-reveal-delay="0.16">
+          <h3>接驳巴士</h3>
+          <p>地铁 9 号线「南屿湖站」C 口每 20 分钟一班直达营地，¥10 / 人 / 程，运营至每日 23:30。</p>
+        </article>
+        <article class="icard" data-reveal data-reveal-delay="0.24">
+          <h3>自驾与停车</h3>
+          <p>导航「南屿湖畔营地 P2 停车场」，¥40 / 天。周末车位紧张，推荐地铁 + 接驳。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FAQ ======== -->
+  <section class="faq" id="faq">
+    <div class="container faq__grid">
+      <div class="faq__head">
+        <p class="kicker">05 · 常见问题 FAQ</p>
+        <h2 class="riso">出发前，<br>看三分钟。</h2>
+      </div>
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion__item"><h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="fq-1"><span>可以带酒水和食物进场吗？</span><svg class="accordion__chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></h3>
+          <div class="accordion__panel" id="fq-1" hidden><p>未开封的瓶装饮用水与少量零食可以；玻璃瓶装与酒精饮料不可带入（场内有 12 家酒水摊与平价纯净水）。露营区不受此限制。</p></div></div>
+        <div class="accordion__item"><h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="fq-2"><span>下雨怎么办？</span><svg class="accordion__chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></h3>
+          <div class="accordion__panel" id="fq-2" hidden><p>小雨照常，演出照演。极端天气（气象台橙色及以上预警）当日场次顺延或退款，官方渠道会在当天 8:00 前通知。</p></div></div>
+        <div class="accordion__item"><h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="fq-3"><span>单日票晚上场次的演出能看完吗？</span><svg class="accordion__chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></h3>
+          <div class="accordion__panel" id="fq-3" hidden><p>可以。压轴场次一般 23:45 前结束，接驳巴士延长至 0:30；散场后 30 分钟内仍可乘末班车。</p></div></div>
+        <div class="accordion__item"><h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="fq-4"><span>两座舞台会撞场吗？</span><svg class="accordion__chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></h3>
+          <div class="accordion__panel" id="fq-4" hidden><p>两台错峰 90 分钟排布，转场步行 6 分钟。时间表已按此设计，按着走基本能听到你想听的所有场次。</p></div></div>
+        <div class="accordion__item"><h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="fq-5"><span>票可以转赠或退吗？</span><svg class="accordion__chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></h3>
+          <div class="accordion__panel" id="fq-5" hidden><p>实名电子票可在官方小程序内免费转赠一次；开演前 72 小时外可申请 80% 退款，手续费由平台收取。</p></div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ======== 页脚 ======== -->
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <p class="footer__logo">共振节 <em>RESONATE</em></p>
+      <p>6.19 – 6.21 · 南屿湖畔营地<br>把低音还给湖面</p>
+    </div>
+    <nav class="footer__nav" aria-label="页脚导航">
+      <a href="#lineup">阵容</a><a href="#timetable">时间表</a><a href="#tix">票务</a><a href="#info">营地与交通</a><a href="#faq">常见问题</a>
+    </nav>
+    <div class="footer__contact">
+      <p>主办方：共振节组委会（虚构）</p>
+      <p><a href="mailto:hi@resonatefest.cn">hi@resonatefest.cn</a></p>
+      <p>商务合作：bd@resonatefest.cn</p>
+    </div>
+  </div>
+  <div class="container footer__legal">
+    <p>© 2026 RESONATE FESTIVAL · 皖ICP备2026-示例号 · <a href="#top">购票须知</a> · <a href="#top">隐私说明</a></p>
+    <p class="footer__fiction">本站为设计演示，品牌为虚构。</p>
+  </div>
+</footer>
+
+<script>/* base.js — 公共能力：平滑滚动 / 滚动揭示 / 导航高亮 / 全屏菜单 / 自定义光标 / 降级。
+   站点 main.js 按需调用：initLenis() revealOnScroll() anchorSpy() initMenu() initCursor() */
+(function () {
+  'use strict';
+  document.documentElement.classList.add('js');
+  /* QA 探针：收集未捕获错误，供浏览器质检读取 */
+  window.__pageErrors = [];
+  window.addEventListener('error', function (e) { window.__pageErrors.push(String(e.message || e)); });
+  window.addEventListener('unhandledrejection', function (e) { window.__pageErrors.push('rejection: ' + String(e.reason)); });
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var hasGSAP = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
+  if (hasGSAP) gsap.registerPlugin(ScrollTrigger);
+  window.__BASE__ = { reduced: reduced, fine: fine, hasGSAP: hasGSAP };
+
+  /* —— 平滑滚动（触屏 / reduced-motion 自动跳过）—— */
+  window.initLenis = function () {
+    if (reduced.matches || typeof Lenis === 'undefined') return null;
+    var lenis = new Lenis({ lerp: 0.1 });
+    window.__lenis = lenis;
+    if (hasGSAP) {
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
+      gsap.ticker.lagSmoothing(0);
+    } else {
+      (function raf(t) { lenis.raf(t); requestAnimationFrame(raf); })(0);
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var id = a.getAttribute('href');
+        if (id.length > 1) {
+          var el = document.querySelector(id);
+          if (el) { e.preventDefault(); lenis.scrollTo(el, { offset: -(window.__BASE_ANCHOR_OFFSET || 80) }); }
+        }
+      });
+    });
+    return lenis;
+  };
+
+  /* —— 滚动揭示：GSAP 优先，回退 IntersectionObserver —— */
+  window.revealOnScroll = function (selector) {
+    var els = document.querySelectorAll(selector || '[data-reveal]');
+    if (!els.length) return;
+    if (reduced.matches) { els.forEach(function (el) { el.classList.add('is-inview'); }); return; }
+    if (hasGSAP) {
+      els.forEach(function (el) {
+        gsap.fromTo(el, { y: 36, autoAlpha: 0 }, {
+          y: 0, autoAlpha: 1, duration: 0.9, ease: 'power3.out',
+          delay: parseFloat(el.getAttribute('data-reveal-delay') || 0),
+          scrollTrigger: { trigger: el, start: 'top 85%', once: true }
+        });
+      });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('is-inview'); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(function (el) { io.observe(el); });
+    }
+  };
+
+  /* —— 导航章节高亮：给导航链接加 data-spy，对应 section 需有同名 id —— */
+  window.anchorSpy = function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('a[data-spy]'));
+    if (!links.length) return;
+    var map = {};
+    links.forEach(function (l) { map[l.getAttribute('href').slice(1)] = l; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting && map[en.target.id]) {
+          links.forEach(function (l) { l.classList.remove('is-active'); });
+          map[en.target.id].classList.add('is-active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    Object.keys(map).forEach(function (id) {
+      var s = document.getElementById(id); if (s) io.observe(s);
+    });
+    /* 带 data-spy-clear 的区块（如首屏）进入视口时清除全部高亮 */
+    document.querySelectorAll('[data-spy-clear]').forEach(function (s) {
+      var ioClear = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) links.forEach(function (l) { l.classList.remove('is-active'); });
+        });
+      }, { rootMargin: '-30% 0px -60% 0px' });
+      ioClear.observe(s);
+    });
+  };
+
+  /* —— 全屏菜单：[data-menu-toggle] + [data-menu]（样式由各站皮肤负责） —— */
+  window.initMenu = function () {
+    var btn = document.querySelector('[data-menu-toggle]');
+    var overlay = document.querySelector('[data-menu]');
+    if (!btn || !overlay) return;
+    function set(open) {
+      overlay.classList.toggle('is-open', open);
+      btn.classList.toggle('is-open', open);
+      btn.setAttribute('aria-expanded', String(open));
+      document.documentElement.classList.toggle('menu-locked', open);
+      if (window.__lenis) open ? window.__lenis.stop() : window.__lenis.start();
+    }
+    btn.addEventListener('click', function () { set(!overlay.classList.contains('is-open')); });
+    overlay.addEventListener('click', function (e) {
+      if (e.target.closest('a') || e.target === overlay) set(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && overlay.classList.contains('is-open')) set(false);
+    });
+  };
+
+  /* —— 自定义光标：元素加 data-cursor="drag|view|hover" 可选 data-cursor-label —— */
+  window.initCursor = function () {
+    if (!fine || reduced.matches) return;
+    var cur = document.createElement('div');
+    cur.className = 'base-cursor';
+    var label = document.createElement('span');
+    cur.appendChild(label);
+    document.body.appendChild(cur);
+    var x = innerWidth / 2, y = innerHeight / 2, tx = x, ty = y, shown = false;
+    addEventListener('mousemove', function (e) {
+      tx = e.clientX; ty = e.clientY;
+      if (!shown) { cur.classList.add('is-on'); shown = true; }
+    }, { passive: true });
+    (function loop() {
+      x += (tx - x) * 0.2; y += (ty - y) * 0.2;
+      cur.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+      requestAnimationFrame(loop);
+    })();
+    document.querySelectorAll('[data-cursor]').forEach(function (el) {
+      el.addEventListener('mouseenter', function () {
+        cur.classList.add('is-active');
+        label.textContent = el.getAttribute('data-cursor-label') || '';
+      });
+      el.addEventListener('mouseleave', function () {
+        cur.classList.remove('is-active'); label.textContent = '';
+      });
+    });
+  };
+})();
+</script>
+<script>/* ==========================================================
+   14 共振节 RESONATE — 主脚本（纯原生方案）
+   招牌交互：声波 canvas（光标/滚动驱动）+ 双舞台时间表横向拖动
+   ========================================================== */
+(function () {
+  'use strict';
+  var reduced = window.__BASE__.reduced.matches;
+
+  revealOnScroll('[data-reveal]');
+  anchorSpy();
+  initMenu();
+
+  /* —— marquee 内容翻倍实现无缝循环 —— */
+  (function marqueeFill() {
+    document.querySelectorAll('[data-roll]').forEach(function (el) {
+      el.textContent += el.textContent;
+    });
+  })();
+
+  /* —— 招牌交互 1：声波 canvas —— */
+  (function waveCanvas() {
+    var canvas = document.getElementById('waveCanvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var w = 0, h = 0;
+    var mouse = { x: -9999, y: 0, power: 0 };   // power：光标影响强度 0–1
+    var scrollBoost = 0;                          // 滚动速度加成
+    var lastScroll = window.scrollY;
+    var t = 0;
+    var BLUE = '#2B3FD6', PINK = '#FF6EA9';
+
+    function resize() {
+      w = canvas.clientWidth; h = canvas.clientHeight;
+      canvas.width = w * dpr; canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    window.addEventListener('mousemove', function (e) {
+      var rect = canvas.getBoundingClientRect();
+      mouse.y = e.clientY;
+      mouse.x = e.clientX;
+      var inside = e.clientY > rect.top - 120 && e.clientY < rect.bottom + 120;
+      mouse.power = inside ? 1 : 0;
+    }, { passive: true });
+
+    window.addEventListener('scroll', function () {
+      var dy = Math.abs(window.scrollY - lastScroll);
+      lastScroll = window.scrollY;
+      scrollBoost = Math.min(1, scrollBoost + dy / 600);
+    }, { passive: true });
+
+    /* 单条波形：blue 幅度大、pink 幅度小且相位错开（套印感） */
+    function drawLine(amp, phase, color, lineWidth) {
+      ctx.beginPath();
+      for (var x = 0; x <= w; x += 4) {
+        var base = Math.sin(x * 0.012 + t * 1.6 + phase) * 12
+                 + Math.sin(x * 0.031 - t * 2.2 + phase * 2) * 7;
+        /* 光标局部增幅：高斯衰减 */
+        var dist = Math.abs(x - mouse.x);
+        var boost = Math.exp(-dist * dist / 26000) * 46 * mouse.power;
+        var boostScroll = Math.sin(x * 0.02 + t * 3) * 10 * scrollBoost;
+        var y = h / 2 + (base + boost + boostScroll) * amp;
+        if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.strokeStyle = color;
+      ctx.lineWidth = lineWidth;
+      ctx.stroke();
+    }
+
+    function frame() {
+      t += 0.012;
+      scrollBoost *= 0.94;
+      ctx.clearRect(0, 0, w, h);
+      drawLine(1.15, 0, 'rgba(43,63,214,0.9)', 2.4);
+      drawLine(0.85, 1.7, 'rgba(255,110,169,0.9)', 2.4);
+      requestAnimationFrame(frame);
+    }
+
+    if (reduced) {
+      /* 直接呈现静态终态波形 */
+      drawLine(1.15, 0, 'rgba(43,63,214,0.9)', 2.4);
+      drawLine(0.85, 1.7, 'rgba(255,110,169,0.9)', 2.4);
+      window.addEventListener('resize', function () {
+        ctx.clearRect(0, 0, w, h);
+        drawLine(1.15, 0, 'rgba(43,63,214,0.9)', 2.4);
+        drawLine(0.85, 1.7, 'rgba(255,110,169,0.9)', 2.4);
+      }, { passive: true });
+      return;
+    }
+    /* 仅在进入视口后启动，省电 */
+    var started = false;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting && !started) { started = true; requestAnimationFrame(frame); }
+        if (!en.isIntersecting && started) { started = false; }
+      });
+    }, { threshold: 0 });
+    io.observe(canvas);
+  })();
+
+  /* —— 时间表数据：3 天 × 双舞台 × 3 场 —— */
+  var TT = {
+    d1: {
+      valley: [
+        { time: '16:00', name: '白鲸通讯', tag: '后摇 · 双吉他长篇叙事' },
+        { time: '19:30', name: '荷电粒子', tag: '电子 · 现场合成器' },
+        { time: '22:00', name: '卧轨的熊', tag: '独立摇滚 · 压轴' }
+      ],
+      lake: [
+        { time: '17:00', name: '棱镜商店', tag: '梦幻流行 · 首次音乐节舞台' },
+        { time: '20:00', name: '弱水三千', tag: '民谣电子 · 湖畔日落场' },
+        { time: '22:45', name: '夜航西飞', tag: 'Techno · 夜场' }
+      ]
+    },
+    d2: {
+      valley: [
+        { time: '16:30', name: '无声放映', tag: '后朋克 · 新专辑首演' },
+        { time: '19:30', name: '咸水鳄', tag: '车库 · 三人编制' },
+        { time: '22:00', name: '银河修理员', tag: 'Synth-pop · 压轴' }
+      ],
+      lake: [
+        { time: '17:30', name: '观测者', tag: '氛围 · 环境声场' },
+        { time: '20:30', name: '热带雨林切片', tag: 'Beat scene · 跨界合作场' },
+        { time: '23:00', name: '磁场偏转', tag: 'EBM · 夜场' }
+      ]
+    },
+    d3: {
+      valley: [
+        { time: '16:30', name: '落日车道', tag: 'City pop · 九人乐队' },
+        { time: '19:30', name: '深潜器', tag: '数学摇滚 · 奇数拍' },
+        { time: '22:00', name: '千面', tag: '硬核 · 闭幕压轴' }
+      ],
+      lake: [
+        { time: '17:00', name: '雾中风景', tag: '后摇 · 弦乐编制' },
+        { time: '20:30', name: '波粒二象', tag: '实验电子 · 视觉联动' },
+        { time: '22:45', name: '终点站朋友们', tag: '大合唱 · 全员返场' }
+      ]
+    }
+  };
+
+  /* —— 招牌交互 2：双舞台时间表（Tab 切天 + 横向拖动） —— */
+  (function timetable() {
+    var grid = document.getElementById('ttGrid');
+    var viewport = document.getElementById('ttViewport');
+    if (!grid || !viewport) return;
+
+    function render(day) {
+      var d = TT[day];
+      var html = '';
+      html += '<div class="tt__stage tt__stage--valley">山谷舞台<small>主舞台 · 靠山面水</small></div>';
+      d.valley.forEach(function (s) {
+        html += '<div class="tt__cell"><time>' + s.time + '</time><h3>' + s.name + '</h3><p>' + s.tag + '</p></div>';
+      });
+      html += '<div class="tt__stage tt__stage--lake">湖畔舞台<small>日落方向 · 夜场主场</small></div>';
+      d.lake.forEach(function (s) {
+        html += '<div class="tt__cell"><time>' + s.time + '</time><h3>' + s.name + '</h3><p>' + s.tag + '</p></div>';
+      });
+      grid.innerHTML = html;
+      viewport.scrollLeft = 0;
+    }
+
+    document.querySelectorAll('.tt__day').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        document.querySelectorAll('.tt__day').forEach(function (t2) {
+          t2.classList.toggle('is-on', t2 === tab);
+          t2.setAttribute('aria-selected', t2 === tab ? 'true' : 'false');
+        });
+        render(tab.getAttribute('data-day'));
+      });
+    });
+    render('d1');
+
+    /* 鼠标横向拖拽；移动端原生滑动 */
+    var isDown = false, startX = 0, startLeft = 0, moved = false;
+    viewport.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse') return;
+      isDown = true; moved = false;
+      startX = e.clientX; startLeft = viewport.scrollLeft;
+      viewport.classList.add('is-drag');
+    });
+    window.addEventListener('pointermove', function (e) {
+      if (!isDown) return;
+      var dx = e.clientX - startX;
+      if (Math.abs(dx) > 4) moved = true;
+      viewport.scrollLeft = startLeft - dx;
+    });
+    window.addEventListener('pointerup', function () {
+      isDown = false;
+      viewport.classList.remove('is-drag');
+      window.setTimeout(function () { moved = false; }, 0);
+    });
+  })();
+
+  /* —— 开票提醒表单 —— */
+  (function tixForm() {
+    var form = document.getElementById('tixForm');
+    if (!form) return;
+    var done = document.querySelector('#tix .form__done');
+    var summary = form.querySelector('.form__summary');
+    var rules = {
+      email: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ? '' : '请填写有效邮箱地址'; },
+      type: function (v) { return v ? '' : '请选择意向票种'; }
+    };
+    var setErr = function (input, msg) {
+      var field = input.closest('.field');
+      field.classList.toggle('is-error', !!msg);
+      input.setAttribute('aria-invalid', msg ? 'true' : 'false');
+      field.querySelector('.field__err').textContent = msg;
+    };
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var firstBad = null;
+      Object.keys(rules).forEach(function (name) {
+        var msg = rules[name](form.elements[name].value);
+        setErr(form.elements[name], msg);
+        if (msg && !firstBad) firstBad = form.elements[name];
+      });
+      if (firstBad) {
+        summary.textContent = '请补全标红信息后再提交。';
+        firstBad.focus();
+        return;
+      }
+      summary.textContent = '';
+      var btn = form.querySelector('.form__submit');
+      btn.disabled = true;
+      btn.textContent = '正在提交…';
+      window.setTimeout(function () {
+        document.getElementById('doneMail').textContent = form.elements.email.value.trim();
+        form.hidden = true;
+        done.hidden = false;
+        btn.disabled = false;
+        btn.textContent = '订阅开票提醒';
+      }, 600);
+    });
+    form.addEventListener('input', function (e) {
+      if (rules[e.target.name]) setErr(e.target, '');
+    });
+    document.getElementById('doneReset').addEventListener('click', function () {
+      form.reset();
+      form.hidden = false;
+      done.hidden = true;
+      form.elements.email.focus();
+    });
+  })();
+})();
+</script>
+</body>
+</html>

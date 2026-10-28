@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>无界设计周 UNBOUND 2026 ｜ 四天 · 三座场地 · 一场城市设计事件</title>
+  <meta name="description" content="无界设计周 UNBOUND 2026——4 天 3 场地的城市设计节：主论坛、工作坊与展览。早鸟票 ¥399，全通票 ¥899，学生票 ¥199。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Noto+Sans+SC:wght@500;700;900&display=swap" rel="stylesheet">
+  <style>/* base.css — 案例库公共底座（reset / 无障碍 / 图片兜底 / 揭示 / 光标 / 降级）
+   各站在其上写自己的皮肤；除工具维护者外不得修改本文件。 */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+html.menu-locked { overflow: hidden; }
+body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; min-height: 100vh; }
+img, svg, video, canvas { display: block; max-width: 100%; }
+button, input, select, textarea { font: inherit; color: inherit; background: none; border: 0; }
+button { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+:focus { outline: none; }
+:focus-visible { outline: 3px solid var(--accent, #ff4d00); outline-offset: 3px; border-radius: 2px; }
+::selection { background: var(--accent, #ff4d00); color: var(--accent-contrast, #fff); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.container { width: min(100% - clamp(48px, 8vw, 176px), var(--container, 1360px)); margin-inline: auto; }
+
+/* 图片兜底：容器带渐变与 aspect-ratio，图片失败后仍保持布局 */
+.img-ph { position: relative; display: block; overflow: hidden; background: var(--ph, linear-gradient(135deg, #e6e0d2, #c9d1c0)); }
+.img-ph > img { width: 100%; height: 100%; object-fit: cover; }
+.img-ph--error::after { content: attr(data-ph-label); position: absolute; inset: 0; display: grid; place-items: center; font: 600 .72rem/1 var(--font-sans, system-ui, sans-serif); letter-spacing: .22em; text-transform: uppercase; color: rgb(0 0 0 / .26); }
+
+/* 滚动揭示（html.js 由 base.js 添加；无 JS / reduced-motion 时直接可见） */
+html.js [data-reveal] { opacity: 0; transform: translateY(36px); transition: opacity .8s cubic-bezier(.16, 1, .3, 1), transform .8s cubic-bezier(.16, 1, .3, 1); }
+html.js [data-reveal].is-inview { opacity: 1; transform: none; }
+
+/* 自定义光标（仅精确指针设备；站点可用 .base-cursor 覆盖样式） */
+.base-cursor { position: fixed; left: 0; top: 0; z-index: 9999; pointer-events: none; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 999px; background: #fff; mix-blend-mode: difference; opacity: 0; transition: width .25s, height .25s, margin .25s, opacity .3s; display: grid; place-items: center; }
+.base-cursor.is-on { opacity: 1; }
+.base-cursor.is-active { width: 64px; height: 64px; margin: -32px 0 0 -32px; }
+.base-cursor span { font: 600 10px/1 var(--font-sans, system-ui, sans-serif); letter-spacing: .14em; text-transform: uppercase; color: #000; opacity: 0; transition: opacity .2s; }
+.base-cursor.is-active span { opacity: 1; }
+@media (hover: none), (pointer: coarse) { .base-cursor { display: none; } }
+
+/* prefers-reduced-motion 全局降级 */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001s !important; animation-iteration-count: 1 !important; transition-duration: .001s !important; }
+  html.js [data-reveal] { opacity: 1 !important; transform: none !important; }
+  .base-cursor { display: none; }
+}
+</style>
+  <style>/* ==========================================================
+   13 无界设计周 UNBOUND — 城市设计节 · 大字海报风
+   米白 #F2F0EA / 墨黑 #101010 / 朱红 #E63312
+   字体：Oswald + Noto Sans SC 900
+   语言：巨型压缩字、描边空心字、硬边色块、票卡翻转 —— 海报感
+   ========================================================== */
+:root {
+  --paper: #F2F0EA;
+  --ink: #101010;
+  --red: #E63312;
+  --red-dark: #C02A0E;
+  --line: #D8D4C8;
+  --accent: #E63312;
+  --accent-contrast: #fff;
+  --font-sans: 'Oswald', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --container: 1280px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-padding-top: 84px; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+h1, h2, h3 { font-weight: 700; line-height: 1.04; letter-spacing: 0.01em; }
+
+.kicker { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--red); margin-bottom: 18px; display: block; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 32px; border: 2px solid var(--ink); font-weight: 600; font-size: 1rem; letter-spacing: 0.14em; transition: transform 0.35s var(--ease), background 0.35s var(--ease), color 0.35s var(--ease), border-color 0.35s; }
+.btn--red { background: var(--red); border-color: var(--red); color: #fff; }
+.btn--red:hover { background: var(--ink); border-color: var(--ink); transform: translateY(-2px); }
+.btn--line { background: transparent; color: var(--ink); }
+.btn--line:hover { background: var(--ink); color: var(--paper); }
+.btn--big { padding: 18px 40px; font-size: 1.1rem; }
+
+/* ---------- 竖向 marquee ---------- */
+.side-marquee { position: fixed; top: 0; bottom: 0; width: 34px; z-index: 5; overflow: hidden; display: flex; align-items: stretch; }
+.side-marquee--l { left: 0; border-right: 1px solid var(--line); }
+.side-marquee--r { right: 0; border-left: 1px solid var(--line); }
+.side-marquee__roll { writing-mode: vertical-rl; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.4em; color: rgba(16, 16, 16, 0.55); white-space: nowrap; padding: 16px 0; animation: rollY 28s linear infinite; }
+.side-marquee__roll--rev { animation-direction: reverse; }
+@keyframes rollY { to { transform: translateY(-50%); } }
+@media (max-width: 1180px) { .side-marquee { display: none; } }
+
+/* ---------- 导航 ---------- */
+.nav { position: fixed; inset: 0 0 auto; z-index: 60; padding: 14px 0; background: var(--paper); border-bottom: 2px solid var(--ink); transition: transform 0.4s var(--ease); }
+.nav.is-scrolled { box-shadow: 0 4px 0 rgba(230, 51, 18, 0.9); }
+.nav__inner { display: flex; align-items: center; gap: 26px; }
+.nav__mark { display: grid; place-items: center; width: 40px; height: 40px; background: var(--red); color: #fff; font-weight: 700; font-size: 1.05rem; letter-spacing: 0.02em; }
+.nav__wordmark { font-weight: 700; font-size: 1.02rem; }
+.nav__wordmark em { font-style: normal; font-size: 0.72em; letter-spacing: 0.18em; color: var(--red); margin-left: 6px; }
+.nav__links { display: flex; gap: 4px; margin-left: auto; font-weight: 500; font-size: 0.95rem; letter-spacing: 0.1em; }
+.nav__links a { padding: 8px 14px; position: relative; }
+.nav__links a::after { content: ""; position: absolute; left: 14px; right: 14px; bottom: 4px; height: 3px; background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform 0.35s var(--ease); }
+.nav__links a:hover::after, .nav__links a.is-active::after { transform: scaleX(1); }
+.nav__cta { margin-left: 6px; padding: 11px 24px; font-size: 0.92rem; }
+.nav__burger { display: none; width: 46px; height: 46px; border: 2px solid var(--ink); position: relative; margin-left: auto; }
+.nav__burger span { position: absolute; left: 11px; right: 11px; height: 2.4px; background: var(--ink); transition: transform 0.35s var(--ease), top 0.35s var(--ease); }
+.nav__burger span:nth-child(1) { top: 15px; }
+.nav__burger span:nth-child(2) { top: 25px; }
+.nav__burger.is-open span:nth-child(1) { top: 20px; transform: rotate(45deg); }
+.nav__burger.is-open span:nth-child(2) { top: 20px; transform: rotate(-45deg); }
+
+/* 全屏菜单（海报黑） */
+.menu { position: fixed; inset: 0; z-index: 50; background: var(--ink); color: var(--paper); display: flex; flex-direction: column; justify-content: center; padding: 90px 34px 44px; opacity: 0; visibility: hidden; transition: opacity 0.4s var(--ease), visibility 0.4s; }
+.menu.is-open { opacity: 1; visibility: visible; }
+.menu__nav { display: flex; flex-direction: column; }
+.menu__nav a { font-size: clamp(2.2rem, 10vw, 3.4rem); font-weight: 700; letter-spacing: 0.04em; padding: 12px 0; border-bottom: 2px solid rgba(242, 240, 234, 0.18); transition: color 0.3s, padding-left 0.35s var(--ease), opacity 0.5s var(--ease), transform 0.5s var(--ease); transform: translateY(20px); opacity: 0; }
+.menu.is-open .menu__nav a { transform: none; opacity: 1; }
+.menu.is-open .menu__nav a:nth-child(2) { transition-delay: 0.06s; }
+.menu.is-open .menu__nav a:nth-child(3) { transition-delay: 0.12s; }
+.menu.is-open .menu__nav a:nth-child(4) { transition-delay: 0.18s; }
+.menu__nav a:hover { color: var(--red); padding-left: 14px; }
+.menu__buy { margin-top: 30px; align-self: flex-start; }
+.menu__meta { margin-top: 26px; font-size: 0.86rem; color: rgba(242, 240, 234, 0.65); line-height: 2; letter-spacing: 0.08em; }
+
+/* ---------- 首屏 ---------- */
+.hero { padding: clamp(130px, 17vh, 190px) 0 0; overflow: hidden; }
+.hero__meta { display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 26px; }
+.hero__meta span { border-bottom: 2px solid var(--red); padding-bottom: 4px; }
+.hero__title { display: flex; flex-direction: column; }
+.hero__title .line { display: block; font-size: clamp(3.4rem, 11.5vw, 10.4rem); font-weight: 700; letter-spacing: 0.01em; }
+.hero__title .line em { font-style: normal; color: var(--red); }
+.hero__title .line--outline { color: transparent; -webkit-text-stroke: 2.5px var(--ink); letter-spacing: 0.03em; }
+.hero__scribble { width: clamp(120px, 14vw, 240px); height: 0.14em; margin-left: 0.2em; display: inline-block; vertical-align: baseline; }
+.hero__foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; flex-wrap: wrap; margin: clamp(28px, 4vw, 52px) 0 clamp(40px, 5vw, 64px); }
+.hero__lead { max-width: 40ch; font-size: 1.02rem; font-weight: 500; line-height: 1.9; }
+.big-roll { border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); background: var(--red); color: #fff; overflow: hidden; padding: 10px 0; }
+.big-roll__track { display: inline-block; white-space: nowrap; font-size: clamp(1.6rem, 3.4vw, 2.8rem); font-weight: 700; letter-spacing: 0.06em; animation: rollX 26s linear infinite; }
+@keyframes rollX { to { transform: translateX(-50%); } }
+
+/* ---------- 日程 ---------- */
+.schedule { padding: clamp(70px, 9vw, 120px) 0 clamp(56px, 7vw, 96px); }
+.schedule__head { margin-bottom: 34px; }
+.schedule__head h2 { font-size: clamp(2.2rem, 5vw, 4rem); }
+.filters { display: flex; flex-direction: column; gap: 14px; padding: 22px 0; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+.filters__group { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.filters__label { flex: none; width: 3.6em; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.2em; color: rgba(16, 16, 16, 0.55); }
+.chip { padding: 7px 16px; border: 1.5px solid var(--ink); border-radius: 999px; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em; background: transparent; transition: background 0.3s var(--ease), color 0.3s var(--ease), transform 0.3s var(--ease); }
+.chip:hover { transform: translateY(-2px); background: rgba(230, 51, 18, 0.1); }
+.chip.is-on { background: var(--ink); color: var(--paper); }
+
+.rows { margin-top: 8px; }
+.row { display: grid; grid-template-columns: 110px 1fr auto; gap: 18px; align-items: baseline; padding: 22px 10px; border-bottom: 1.5px solid var(--line); transition: background 0.3s var(--ease), color 0.3s var(--ease), padding-left 0.35s var(--ease); }
+.row:hover { background: var(--ink); color: var(--paper); padding-left: 22px; }
+.row__time { font-size: 0.9rem; font-weight: 600; letter-spacing: 0.08em; font-variant-numeric: tabular-nums; }
+.row__title { font-size: clamp(1.15rem, 2.4vw, 1.7rem); font-weight: 600; line-height: 1.3; }
+.row__title small { display: block; font-size: 0.82rem; font-weight: 500; color: rgba(16, 16, 16, 0.6); margin-top: 4px; transition: color 0.3s; }
+.row:hover .row__title small { color: rgba(242, 240, 234, 0.65); }
+.row__tags { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.row__tag { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; padding: 4px 10px; border: 1.5px solid currentColor; white-space: nowrap; }
+.row__tag--red { border-color: var(--red); color: var(--red); }
+.row:hover .row__tag--red { color: #FF7A5C; border-color: #FF7A5C; }
+.rows__empty { text-align: center; padding: clamp(48px, 8vw, 96px) 20px; border: 2px dashed var(--line); margin-top: 24px; }
+.rows__emptyBig { font-size: clamp(1.8rem, 4.5vw, 3rem); font-weight: 700; color: var(--red); line-height: 1.2; margin-bottom: 14px; }
+.rows__empty p:not(.rows__emptyBig) { color: rgba(16, 16, 16, 0.6); margin-bottom: 22px; }
+
+/* ---------- 场地 ---------- */
+.venues { padding: clamp(70px, 9vw, 120px) 0; background: var(--ink); color: var(--paper); }
+.venues .kicker { color: var(--red); }
+.venues__head { margin-bottom: clamp(34px, 5vw, 60px); }
+.venues__head h2 { font-size: clamp(2.2rem, 5vw, 4rem); }
+.venues__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(242, 240, 234, 0.25); }
+.venue { background: var(--ink); padding: 0 0 34px; transition: background 0.4s var(--ease); }
+.venue__ph { display: block; aspect-ratio: 16 / 8; margin-bottom: 24px; }
+.venue:hover { background: #1B1B1B; }
+.venue__no { font-size: clamp(3rem, 5vw, 4.6rem); font-weight: 700; color: transparent; -webkit-text-stroke: 2px var(--red); display: block; margin: 0 28px 14px; }
+.venue h3 { font-size: 1.35rem; margin: 0 28px 12px; }
+.venue p { font-size: 0.92rem; color: rgba(242, 240, 234, 0.72); min-height: 5.2em; margin: 0 28px; }
+.venue ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 28px 0; }
+.venue ul li { font-size: 0.74rem; font-weight: 500; letter-spacing: 0.12em; padding: 4px 10px; border: 1px solid rgba(242, 240, 234, 0.35); }
+
+/* ---------- 票务 ---------- */
+.tickets { padding: clamp(70px, 9vw, 120px) 0; }
+.tickets__head { margin-bottom: clamp(34px, 5vw, 60px); }
+.tickets__head h2 { font-size: clamp(2.2rem, 5vw, 4rem); }
+.tickets__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; perspective: 1200px; }
+.tcard { position: relative; border: 2.5px solid var(--ink); background: var(--paper); padding: 30px 28px 30px; display: flex; flex-direction: column; gap: 14px; transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease); }
+.tcard--hot { background: var(--red); color: #fff; border-color: var(--red); }
+.tcard--hot .btn--red { background: #fff; color: var(--red); border-color: #fff; }
+.tcard--hot .btn--red:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+.tcard:hover { transform: translateY(-8px); box-shadow: 0 22px 0 -12px rgba(16, 16, 16, 0.9); }
+.tcard__tag { font-size: 0.74rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; }
+.tcard__tag--dim { color: rgba(16, 16, 16, 0.55); }
+.tcard--hot .tcard__tag { color: #FFD9CF; }
+.tcard h3 { font-size: 1.7rem; }
+.tcard__price { font-size: clamp(2.6rem, 4vw, 3.6rem); font-weight: 700; line-height: 1; }
+.tcard ul { display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem; margin-bottom: 10px; }
+.tcard ul li { display: flex; align-items: center; gap: 10px; }
+.tcard ul li::before { content: ""; flex: none; width: 8px; height: 8px; background: var(--red); }
+.tcard--hot ul li::before { background: #fff; }
+.tcard .btn { margin-top: auto; }
+/* 票卡 3D 翻转入场 */
+html.js .tcard[data-reveal] { transform: rotateX(-38deg) translateY(50px); opacity: 0; transform-origin: top; transition: transform 0.9s var(--ease), opacity 0.7s var(--ease), box-shadow 0.5s var(--ease); }
+html.js .tcard[data-reveal].is-inview { transform: rotateX(0) translateY(0); opacity: 1; }
+html.js .tcard[data-reveal]:hover { transform: rotateX(0) translateY(-8px); }
+.tickets__note { margin-top: 26px; font-size: 0.8rem; color: rgba(16, 16, 16, 0.55); }
+
+/* ---------- FAQ ---------- */
+.faq { padding: clamp(70px, 9vw, 120px) 0; border-top: 2px solid var(--ink); }
+.faq__grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(30px, 5vw, 72px); align-items: start; }
+.faq__head h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
+.accordion { display: flex; flex-direction: column; gap: 10px; }
+.accordion__item { border: 2px solid var(--ink); background: var(--paper); }
+.accordion__item.is-open { background: #fff; }
+.accordion__btn { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 18px 22px; text-align: left; font-size: 1.02rem; font-weight: 600; letter-spacing: 0.02em; }
+.accordion__chev { flex: none; color: var(--red); transition: transform 0.4s var(--ease); }
+.accordion__item.is-open .accordion__chev { transform: rotate(180deg); }
+.accordion__panel { padding: 0 22px 20px; font-size: 0.94rem; color: rgba(16, 16, 16, 0.75); }
+
+/* ---------- 购票弹窗 ---------- */
+.modal { position: fixed; inset: 0; z-index: 90; display: grid; place-items: center; padding: 20px; }
+.modal[hidden] { display: none; }
+.modal__mask { position: absolute; inset: 0; background: rgba(16, 16, 16, 0.72); }
+.modal__box { position: relative; width: min(560px, 100%); max-height: min(86vh, 720px); overflow-y: auto; background: var(--paper); border: 3px solid var(--ink); padding: 30px 30px 34px; box-shadow: 10px 10px 0 var(--red); }
+.modal__x { position: absolute; top: 14px; right: 14px; width: 40px; height: 40px; display: grid; place-items: center; border: 2px solid var(--ink); transition: background 0.3s, color 0.3s; }
+.modal__x:hover { background: var(--red); border-color: var(--red); color: #fff; }
+.modal__steps { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.18em; }
+.modal__steps i { width: 30px; height: 6px; background: var(--line); transition: background 0.3s; }
+.modal__steps i.is-on { background: var(--red); }
+.modal__steps span { margin-left: 6px; }
+.modal__h { font-size: 1.6rem; margin-bottom: 18px; }
+.modal__plans { display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 22px; }
+.mplan { display: grid; grid-template-columns: 1fr auto; grid-template-areas: "name price" "desc price"; align-items: center; column-gap: 18px; text-align: left; padding: 16px 18px; border: 2px solid var(--ink); transition: background 0.3s var(--ease), border-color 0.3s, box-shadow 0.3s var(--ease); }
+.mplan__name { grid-area: name; font-size: 1.15rem; font-weight: 700; }
+.mplan__price { grid-area: price; font-size: 1.5rem; font-weight: 700; color: var(--red); }
+.mplan__desc { grid-area: desc; font-size: 0.82rem; color: rgba(16, 16, 16, 0.6); }
+.mplan:hover { background: rgba(230, 51, 18, 0.08); }
+.mplan.is-pick { border-color: var(--red); box-shadow: 5px 5px 0 var(--red); }
+.modal__next { width: 100%; }
+.mform { display: grid; gap: 14px; }
+.mform__plan { font-size: 0.92rem; border: 1.5px dashed var(--ink); padding: 10px 14px; }
+.mform__plan strong { color: var(--red); }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; }
+.field label i { color: var(--red); font-style: normal; }
+.field input[type="text"], .field input[type="email"], .field input[type="tel"] { border: 2px solid var(--ink); background: #fff; padding: 12px 14px; font-size: 0.95rem; width: 100%; transition: border-color 0.3s, background 0.3s; }
+.field input:focus { border-color: var(--red); }
+.field.is-error input { border-color: var(--red); background: #FCEDE9; }
+.field__err { min-height: 1em; font-size: 0.76rem; font-weight: 600; color: var(--red-dark); }
+.field--check { flex-direction: column; }
+.field--check label { display: flex; align-items: center; gap: 10px; font-size: 0.88rem; cursor: pointer; }
+.field--check input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--red); }
+.form__summary { font-size: 0.84rem; font-weight: 600; color: var(--red-dark); min-height: 1.3em; }
+.mform__nav { display: flex; gap: 12px; }
+.mform__nav .btn { flex: 1; }
+.modal__step--done { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 18px 0 6px; }
+.modal__doneNo { font-size: 1.05rem; }
+.modal__doneNo strong { color: var(--red); letter-spacing: 0.06em; }
+.modal__doneTxt { font-size: 0.9rem; color: rgba(16, 16, 16, 0.7); max-width: 40ch; }
+.modal__step--done .btn { margin-top: 10px; }
+
+/* ---------- 页脚 ---------- */
+.footer { background: var(--ink); color: #D9D6CC; padding: clamp(52px, 7vw, 80px) 0 28px; }
+.footer__grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(217, 214, 204, 0.2); }
+.footer__logo { font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; color: var(--paper); }
+.footer__logo em { font-style: normal; font-size: 0.7em; letter-spacing: 0.2em; color: var(--red); }
+.footer__brand p:last-child { font-size: 0.9rem; color: #A6A396; }
+.footer__nav { display: grid; grid-template-columns: 1fr; gap: 10px; align-content: start; font-size: 0.92rem; }
+.footer__nav a { color: #A6A396; transition: color 0.3s; }
+.footer__nav a:hover { color: var(--red); }
+.footer__contact { font-size: 0.92rem; display: flex; flex-direction: column; gap: 8px; color: #A6A396; }
+.footer__contact a:hover { color: var(--red); }
+.footer__legal { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; padding-top: 22px; font-size: 0.76rem; color: #7E7B70; }
+.footer__legal a { text-decoration: underline; text-underline-offset: 3px; }
+.footer__fiction { letter-spacing: 0.08em; }
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 1024px) {
+  .nav__links, .nav__cta { display: none; }
+  .nav__burger { display: block; }
+  .venues__grid { grid-template-columns: 1fr; }
+  .tickets__grid { grid-template-columns: 1fr; max-width: 560px; margin-inline: auto; }
+  .row { grid-template-columns: 86px 1fr; }
+  .row__tags { grid-column: 2; justify-content: flex-start; }
+}
+@media (max-width: 768px) {
+  .faq__grid { grid-template-columns: 1fr; }
+  .hero__foot { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 640px) {
+  .row { grid-template-columns: 1fr; gap: 8px; }
+  .row__tags { grid-column: 1; }
+  .modal__box { padding: 24px 18px 26px; }
+  .mform__nav { flex-direction: column; }
+  .footer__grid { grid-template-columns: 1fr; gap: 26px; }
+}
+
+/* ---------- reduced-motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .side-marquee__roll, .big-roll__track { animation: none; }
+  .btn:hover, .tcard:hover, .row:hover, .chip:hover, .menu__nav a:hover { transform: none; padding-left: 10px; }
+  .row:hover { padding-left: 10px; }
+  html.js .tcard[data-reveal] { transform: none; opacity: 1; }
+}
+</style>
+</head>
+<body>
+
+<!-- 竖向 marquee 侧条 -->
+<div class="side-marquee side-marquee--l" aria-hidden="true"><div class="side-marquee__roll" data-roll>UNBOUND 2026 · 城市设计周 · UNBOUND 2026 · 城市设计周 · </div></div>
+<div class="side-marquee side-marquee--r" aria-hidden="true"><div class="side-marquee__roll side-marquee__roll--rev" data-roll>设计不设边界 · DESIGN WITHOUT BORDERS · 设计不设边界 · DESIGN WITHOUT BORDERS · </div></div>
+
+<!-- ======== 顶部导航 ======== -->
+<header class="nav" id="top">
+  <div class="nav__inner container">
+    <a class="nav__logo" href="#top" aria-label="无界设计周 UNBOUND 首页">
+      <span class="nav__mark">UB</span>
+      <span class="nav__wordmark">无界设计周 <em>UNBOUND 2026</em></span>
+    </a>
+    <nav class="nav__links" aria-label="页面导航">
+      <a href="#schedule" data-spy>日程</a>
+      <a href="#venues" data-spy>场地</a>
+      <a href="#tickets" data-spy>票务</a>
+      <a href="#faq" data-spy>常见问题</a>
+    </nav>
+    <button class="btn btn--red nav__cta" type="button" data-buy>购 票</button>
+    <button class="nav__burger" type="button" data-menu-toggle aria-expanded="false" aria-label="打开菜单"><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- 移动端全屏菜单 -->
+<div class="menu" data-menu aria-hidden="true">
+  <nav class="menu__nav" aria-label="全屏菜单">
+    <a href="#schedule" data-spy>日程</a>
+    <a href="#venues" data-spy>场地</a>
+    <a href="#tickets" data-spy>票务</a>
+    <a href="#faq" data-spy>常见问题</a>
+  </nav>
+  <button class="btn btn--red menu__buy" type="button" data-buy>购 票</button>
+  <p class="menu__meta">10.15 – 10.18 · 西岸滨江 · 3 座场地<br>主办：无界设计周组委会（虚构）</p>
+</div>
+
+<main>
+  <!-- ======== 首屏：巨型海报字 ======== -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <p class="hero__meta"><span>10.15 — 10.18</span><span>西岸滨江 · 上海</span><span>第 5 届</span></p>
+      <h1 class="hero__title">
+        <span class="line"><em>无界</em>设计周</span>
+        <span class="line line--outline">UNBOUND</span>
+        <span class="line">2026<svg class="hero__scribble" viewBox="0 0 240 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8c60-6 120 6 236-2" stroke="var(--red)" stroke-width="5" fill="none" stroke-linecap="round"/></svg></span>
+      </h1>
+      <div class="hero__foot">
+        <p class="hero__lead">四天，三座场地，40 余场主论坛、工作坊与展览。我们把城市当作展场，把设计还给所有人。</p>
+        <button class="btn btn--red btn--big" type="button" data-buy>早鸟票 ¥399 · 抢购</button>
+      </div>
+    </div>
+    <!-- 横向巨型跑马 -->
+    <div class="big-roll" aria-hidden="true"><div class="big-roll__track" data-roll>UNBOUND 2026 · 无界设计周 · UNBOUND 2026 · 无界设计周 · </div></div>
+  </section>
+
+  <!-- ======== 日程 ======== -->
+  <section class="schedule" id="schedule">
+    <div class="container">
+      <div class="schedule__head">
+        <p class="kicker">01 · 日程 Schedule</p>
+        <h2>把四天，<br>排成一堂公开课。</h2>
+      </div>
+      <!-- 招牌交互：日程筛选器 -->
+      <div class="filters" role="group" aria-label="日程筛选">
+        <div class="filters__group" data-group="day">
+          <span class="filters__label">日期</span>
+          <button type="button" class="chip is-on" data-val="all">全部</button>
+          <button type="button" class="chip" data-val="d1">10.15 周四</button>
+          <button type="button" class="chip" data-val="d2">10.16 周五</button>
+          <button type="button" class="chip" data-val="d3">10.17 周六</button>
+          <button type="button" class="chip" data-val="d4">10.18 周日</button>
+        </div>
+        <div class="filters__group" data-group="venue">
+          <span class="filters__label">场地</span>
+          <button type="button" class="chip is-on" data-val="all">全部</button>
+          <button type="button" class="chip" data-val="A">A 主厅</button>
+          <button type="button" class="chip" data-val="B">B 车间</button>
+          <button type="button" class="chip" data-val="C">C 仓库</button>
+        </div>
+        <div class="filters__group" data-group="type">
+          <span class="filters__label">类型</span>
+          <button type="button" class="chip is-on" data-val="all">全部</button>
+          <button type="button" class="chip" data-val="talk">主论坛</button>
+          <button type="button" class="chip" data-val="workshop">工作坊</button>
+          <button type="button" class="chip" data-val="expo">展览</button>
+        </div>
+      </div>
+
+      <div class="rows" id="schedRows" aria-live="polite">
+        <!-- 议程行由 JS 渲染 -->
+      </div>
+      <div class="rows__empty" id="schedEmpty" hidden>
+        <p class="rows__emptyBig">这一天，<br>没有匹配的场次。</p>
+        <p>换一个组合试试——或者干脆来个四日全通。</p>
+        <button class="btn btn--line" type="button" id="schedReset">重置筛选</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== 场地 ======== -->
+  <section class="venues" id="venues">
+    <div class="container">
+      <div class="venues__head">
+        <p class="kicker">02 · 场地 Venues</p>
+        <h2>三座建筑，<br>三种设计现场。</h2>
+      </div>
+      <div class="venues__grid">
+        <article class="venue" data-reveal>
+          <span class="img-ph venue__ph" data-img="gallery" data-ph-label="A 主厅现场" style="--ph:linear-gradient(160deg,#26262B,#101010)"><img src="https://images.unsplash.com/photo-1643577927717-30bf56a9ac1e?auto=format&fit=crop&w=1600&q=80" alt="a couple of people standing in a large room" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('img-ph--error');this.remove()"></span>
+          <span class="venue__no">A</span>
+          <h3>主厅 · 西岸穹顶</h3>
+          <p>前航运仓库改造的 1200 座主会场。开闭幕、全部主论坛与晚间对谈都在这里。</p>
+          <ul><li>1200 席</li><li>双同传</li><li>无障碍通道</li></ul>
+        </article>
+        <article class="venue" data-reveal data-reveal-delay="0.1">
+          <span class="img-ph venue__ph" data-img="art_installation" data-ph-label="B 车间现场" style="--ph:linear-gradient(160deg,#232328,#0F0F0F)"><img src="https://images.unsplash.com/photo-1771766974363-c064d314d878?auto=format&fit=crop&w=1600&q=80" alt="Rows of colorful lanterns illuminated at night" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('img-ph--error');this.remove()"></span>
+          <span class="venue__no">B</span>
+          <h3>车间 · 数字工坊</h3>
+          <p>工作坊专属场地：激光切割、打印装订与可变字体工作站全天开放，30 人一班。</p>
+          <ul><li>30 人 / 班</li><li>全套工具</li><li>材料另计</li></ul>
+        </article>
+        <article class="venue" data-reveal data-reveal-delay="0.2">
+          <span class="img-ph venue__ph" data-img="stage_lights" data-ph-label="C 仓库现场" style="--ph:linear-gradient(160deg,#2A1E1C,#100C0B)"><img src="https://images.unsplash.com/photo-1621873493371-9aea49f66b9b?auto=format&fit=crop&w=1600&q=80" alt="red and yellow light on a dark room" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('img-ph--error');this.remove()"></span>
+          <span class="venue__no">C</span>
+          <h3>仓库 · 自由展场</h3>
+          <p>2000 平米无柱展场，主展「边界与皮肤」、独立出版快闪与声音装置夜场均在此。</p>
+          <ul><li>2000 ㎡</li><li>10:00–22:00</li><li>凭票入场</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== 票务 ======== -->
+  <section class="tickets" id="tickets">
+    <div class="container">
+      <div class="tickets__head">
+        <p class="kicker">03 · 票务 Tickets</p>
+        <h2>选一张，<br>然后来现场。</h2>
+      </div>
+      <div class="tickets__grid">
+        <article class="tcard tcard--hot" data-reveal>
+          <p class="tcard__tag">剩最后 400 张</p>
+          <h3>早鸟票</h3>
+          <p class="tcard__price">¥399</p>
+          <ul>
+            <li>四日全通 · 三座场地</li>
+            <li>开幕夜酒会入场</li>
+            <li>官方周边帆布袋</li>
+          </ul>
+          <button class="btn btn--red" type="button" data-buy data-plan="早鸟票 ¥399">选这张</button>
+        </article>
+        <article class="tcard" data-reveal data-reveal-delay="0.12">
+          <p class="tcard__tag tcard__tag--dim">随时可购</p>
+          <h3>全通票</h3>
+          <p class="tcard__price">¥899</p>
+          <ul>
+            <li>含早鸟全部权益</li>
+            <li>工作坊优先占座</li>
+            <li>讲者 PPT 合集</li>
+          </ul>
+          <button class="btn btn--line" type="button" data-buy data-plan="全通票 ¥899">选这张</button>
+        </article>
+        <article class="tcard" data-reveal data-reveal-delay="0.24">
+          <p class="tcard__tag tcard__tag--dim">凭证件核验</p>
+          <h3>学生票</h3>
+          <p class="tcard__price">¥199</p>
+          <ul>
+            <li>四日全通</li>
+            <li>需学生证入场</li>
+            <li>限量 800 张</li>
+          </ul>
+          <button class="btn btn--line" type="button" data-buy data-plan="学生票 ¥199">选这张</button>
+        </article>
+      </div>
+      <p class="tickets__note">* 票款含税并开具电子发票；开幕前 48 小时内可无条件转让一次。</p>
+    </div>
+  </section>
+
+  <!-- ======== FAQ ======== -->
+  <section class="faq" id="faq">
+    <div class="container faq__grid">
+      <div class="faq__head">
+        <p class="kicker">04 · 常见问题 FAQ</p>
+        <h2>来之前，<br>看一眼。</h2>
+      </div>
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion__item"><h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="fq-1"><span>工作坊需要另外报名吗？</span><svg class="accordion__chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></h3>
+          <div class="accordion__panel" id="fq-1" hidden><p>每场工作坊开票当周 10:00 在小程序单独预约，全通票享有 24 小时优先期。每人最多约 3 场，爽约两次将限制预约。</p></div></div>
+        <div class="accordion__item"><h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="fq-2"><span>门票包含展览吗？</span><svg class="accordion__chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></h3>
+          <div class="accordion__panel" id="fq-2" hidden><p>包含。C 仓库全部展览对所有票种开放，声音装置夜场需在 C 仓库门口二次扫码（免费，限流）。</p></div></div>
+        <div class="accordion__item"><h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="fq-3"><span>能退票或转让吗？</span><svg class="accordion__chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></h3>
+          <div class="accordion__panel" id="fq-3" hidden><p>开幕前 7 天内可申请全额退款（手续费由主办方承担）；此后至开幕前 48 小时可免费转让一次，逾期不可退转。</p></div></div>
+        <div class="accordion__item"><h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="fq-4"><span>现场有同声传译吗？</span><svg class="accordion__chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></h3>
+          <div class="accordion__panel" id="fq-4" hidden><p>A 主厅全部主论坛配中英同传，凭押金 ¥100 在服务台领取接收器；工作坊以中文为主，个别英文场会在标题中标注。</p></div></div>
+        <div class="accordion__item"><h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="fq-5"><span>带小孩来方便吗？</span><svg class="accordion__chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></h3>
+          <div class="accordion__panel" id="fq-5" hidden><p>欢迎。周末两天 C 仓库设亲子手工角（免费），1.2 米以下儿童免票入场，需成人全程陪同。</p></div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ======== 购票弹窗（三步） ======== -->
+<div class="modal" id="buyModal" role="dialog" aria-modal="true" aria-labelledby="buyTitle" hidden>
+  <div class="modal__mask" data-close></div>
+  <div class="modal__box" role="document">
+    <button class="modal__x" type="button" data-close aria-label="关闭购票窗口"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    <p class="modal__steps" aria-label="购票步骤"><i class="is-on" data-dot="1"></i><i data-dot="2"></i><i data-dot="3"></i><span id="buyTitle">选票档</span></p>
+
+    <!-- Step 1 选票档 -->
+    <div class="modal__step" data-step="1">
+      <h3 class="modal__h">选择票档</h3>
+      <div class="modal__plans">
+        <button type="button" class="mplan is-pick" data-plan="早鸟票 ¥399"><span class="mplan__name">早鸟票</span><span class="mplan__price">¥399</span><span class="mplan__desc">四日全通 + 开幕夜</span></button>
+        <button type="button" class="mplan" data-plan="全通票 ¥899"><span class="mplan__name">全通票</span><span class="mplan__price">¥899</span><span class="mplan__desc">含工作坊优先占座</span></button>
+        <button type="button" class="mplan" data-plan="学生票 ¥199"><span class="mplan__name">学生票</span><span class="mplan__price">¥199</span><span class="mplan__desc">学生证入场核验</span></button>
+      </div>
+      <button class="btn btn--red modal__next" type="button" data-next>下一步：填写信息</button>
+    </div>
+
+    <!-- Step 2 表单 -->
+    <div class="modal__step" data-step="2" hidden>
+      <h3 class="modal__h">填写购票人信息</h3>
+      <form class="mform" id="buyForm" novalidate>
+        <p class="mform__plan">已选：<strong id="mformPlan">早鸟票 ¥399</strong></p>
+        <div class="field">
+          <label for="b-name">姓名 <i aria-hidden="true">*</i></label>
+          <input id="b-name" name="name" type="text" autocomplete="name" placeholder="与入场证件一致">
+          <p class="field__err" aria-live="polite"></p>
+        </div>
+        <div class="field">
+          <label for="b-mail">邮箱 <i aria-hidden="true">*</i></label>
+          <input id="b-mail" name="email" type="email" autocomplete="email" placeholder="电子票将发送至此">
+          <p class="field__err" aria-live="polite"></p>
+        </div>
+        <div class="field">
+          <label for="b-id">手机号 <i aria-hidden="true">*</i></label>
+          <input id="b-id" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="11 位大陆手机号">
+          <p class="field__err" aria-live="polite"></p>
+        </div>
+        <div class="field field--check">
+          <label><input type="checkbox" id="b-agree" name="agree"> 我已阅读并同意《购票须知》</label>
+          <p class="field__err" aria-live="polite"></p>
+        </div>
+        <p class="form__summary" aria-live="polite"></p>
+        <div class="mform__nav">
+          <button class="btn btn--line" type="button" data-back>返回选票</button>
+          <button class="btn btn--red" type="submit">确认购票</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Step 3 成功 -->
+    <div class="modal__step modal__step--done" data-step="3" hidden>
+      <svg width="52" height="52" viewBox="0 0 52 52" fill="none" aria-hidden="true"><path d="M4 18V10a6 6 0 0 1 6-6h32a6 6 0 0 1 6 6v8a8 8 0 0 0 0 16v8a6 6 0 0 1-6 6H10a6 6 0 0 1-6-6v-8a8 8 0 0 0 0-16Z" stroke="var(--red)" stroke-width="2.2"/><path d="M17 25l7 7 12-13" stroke="var(--red)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h3 class="modal__h">出票成功</h3>
+      <p class="modal__doneNo">票号 <strong id="ticketNo">UB-2026-000000</strong></p>
+      <p class="modal__doneTxt">电子票已发送至 <strong id="ticketMail"></strong>。凭票号与身份证件于 10.15 起在西岸滨江 A 厅服务台兑票入场。</p>
+      <button class="btn btn--line" type="button" data-close>完成</button>
+    </div>
+  </div>
+</div>
+
+<!-- ======== 页脚 ======== -->
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <p class="footer__logo">无界设计周 <em>UNBOUND</em></p>
+      <p>10.15 – 10.18 · 上海西岸滨江<br>把城市当作展场</p>
+    </div>
+    <nav class="footer__nav" aria-label="页脚导航">
+      <a href="#schedule">日程</a><a href="#venues">场地</a><a href="#tickets">票务</a><a href="#faq">常见问题</a>
+    </nav>
+    <div class="footer__contact">
+      <p>组委会（虚构）：<a href="mailto:hello@unbound.week">hello@unbound.week</a></p>
+      <p>媒体合作：press@unbound.week</p>
+      <p>志愿者报名：vol@unbound.week</p>
+    </div>
+  </div>
+  <div class="container footer__legal">
+    <p>© 2026 UNBOUND DESIGN WEEK · 沪ICP备2026-示例号 · <a href="#top">购票须知</a> · <a href="#top">隐私说明</a></p>
+    <p class="footer__fiction">本站为设计演示，品牌为虚构。</p>
+  </div>
+</footer>
+
+<script>/* base.js — 公共能力：平滑滚动 / 滚动揭示 / 导航高亮 / 全屏菜单 / 自定义光标 / 降级。
+   站点 main.js 按需调用：initLenis() revealOnScroll() anchorSpy() initMenu() initCursor() */
+(function () {
+  'use strict';
+  document.documentElement.classList.add('js');
+  /* QA 探针：收集未捕获错误，供浏览器质检读取 */
+  window.__pageErrors = [];
+  window.addEventListener('error', function (e) { window.__pageErrors.push(String(e.message || e)); });
+  window.addEventListener('unhandledrejection', function (e) { window.__pageErrors.push('rejection: ' + String(e.reason)); });
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var hasGSAP = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
+  if (hasGSAP) gsap.registerPlugin(ScrollTrigger);
+  window.__BASE__ = { reduced: reduced, fine: fine, hasGSAP: hasGSAP };
+
+  /* —— 平滑滚动（触屏 / reduced-motion 自动跳过）—— */
+  window.initLenis = function () {
+    if (reduced.matches || typeof Lenis === 'undefined') return null;
+    var lenis = new Lenis({ lerp: 0.1 });
+    window.__lenis = lenis;
+    if (hasGSAP) {
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
+      gsap.ticker.lagSmoothing(0);
+    } else {
+      (function raf(t) { lenis.raf(t); requestAnimationFrame(raf); })(0);
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var id = a.getAttribute('href');
+        if (id.length > 1) {
+          var el = document.querySelector(id);
+          if (el) { e.preventDefault(); lenis.scrollTo(el, { offset: -(window.__BASE_ANCHOR_OFFSET || 80) }); }
+        }
+      });
+    });
+    return lenis;
+  };
+
+  /* —— 滚动揭示：GSAP 优先，回退 IntersectionObserver —— */
+  window.revealOnScroll = function (selector) {
+    var els = document.querySelectorAll(selector || '[data-reveal]');
+    if (!els.length) return;
+    if (reduced.matches) { els.forEach(function (el) { el.classList.add('is-inview'); }); return; }
+    if (hasGSAP) {
+      els.forEach(function (el) {
+        gsap.fromTo(el, { y: 36, autoAlpha: 0 }, {
+          y: 0, autoAlpha: 1, duration: 0.9, ease: 'power3.out',
+          delay: parseFloat(el.getAttribute('data-reveal-delay') || 0),
+          scrollTrigger: { trigger: el, start: 'top 85%', once: true }
+        });
+      });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('is-inview'); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(function (el) { io.observe(el); });
+    }
+  };
+
+  /* —— 导航章节高亮：给导航链接加 data-spy，对应 section 需有同名 id —— */
+  window.anchorSpy = function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('a[data-spy]'));
+    if (!links.length) return;
+    var map = {};
+    links.forEach(function (l) { map[l.getAttribute('href').slice(1)] = l; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting && map[en.target.id]) {
+          links.forEach(function (l) { l.classList.remove('is-active'); });
+          map[en.target.id].classList.add('is-active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    Object.keys(map).forEach(function (id) {
+      var s = document.getElementById(id); if (s) io.observe(s);
+    });
+    /* 带 data-spy-clear 的区块（如首屏）进入视口时清除全部高亮 */
+    document.querySelectorAll('[data-spy-clear]').forEach(function (s) {
+      var ioClear = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) links.forEach(function (l) { l.classList.remove('is-active'); });
+        });
+      }, { rootMargin: '-30% 0px -60% 0px' });
+      ioClear.observe(s);
+    });
+  };
+
+  /* —— 全屏菜单：[data-menu-toggle] + [data-menu]（样式由各站皮肤负责） —— */
+  window.initMenu = function () {
+    var btn = document.querySelector('[data-menu-toggle]');
+    var overlay = document.querySelector('[data-menu]');
+    if (!btn || !overlay) return;
+    function set(open) {
+      overlay.classList.toggle('is-open', open);
+      btn.classList.toggle('is-open', open);
+      btn.setAttribute('aria-expanded', String(open));
+      document.documentElement.classList.toggle('menu-locked', open);
+      if (window.__lenis) open ? window.__lenis.stop() : window.__lenis.start();
+    }
+    btn.addEventListener('click', function () { set(!overlay.classList.contains('is-open')); });
+    overlay.addEventListener('click', function (e) {
+      if (e.target.closest('a') || e.target === overlay) set(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && overlay.classList.contains('is-open')) set(false);
+    });
+  };
+
+  /* —— 自定义光标：元素加 data-cursor="drag|view|hover" 可选 data-cursor-label —— */
+  window.initCursor = function () {
+    if (!fine || reduced.matches) return;
+    var cur = document.createElement('div');
+    cur.className = 'base-cursor';
+    var label = document.createElement('span');
+    cur.appendChild(label);
+    document.body.appendChild(cur);
+    var x = innerWidth / 2, y = innerHeight / 2, tx = x, ty = y, shown = false;
+    addEventListener('mousemove', function (e) {
+      tx = e.clientX; ty = e.clientY;
+      if (!shown) { cur.classList.add('is-on'); shown = true; }
+    }, { passive: true });
+    (function loop() {
+      x += (tx - x) * 0.2; y += (ty - y) * 0.2;
+      cur.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+      requestAnimationFrame(loop);
+    })();
+    document.querySelectorAll('[data-cursor]').forEach(function (el) {
+      el.addEventListener('mouseenter', function () {
+        cur.classList.add('is-active');
+        label.textContent = el.getAttribute('data-cursor-label') || '';
+      });
+      el.addEventListener('mouseleave', function () {
+        cur.classList.remove('is-active'); label.textContent = '';
+      });
+    });
+  };
+})();
+</script>
+<script>/* ==========================================================
+   13 无界设计周 UNBOUND — 主脚本（纯原生方案）
+   招牌交互：日程三重 chip 筛选（空态设计）+ 购票弹窗三步
+   ========================================================== */
+(function () {
+  'use strict';
+  var reduced = window.__BASE__.reduced.matches;
+
+  revealOnScroll('[data-reveal]');
+  anchorSpy();
+  initMenu();
+
+  /* —— marquee 复制：把内容翻倍实现无缝循环 —— */
+  (function marqueeFill() {
+    document.querySelectorAll('[data-roll]').forEach(function (el) {
+      el.textContent += el.textContent;
+    });
+  })();
+
+  /* —— 议程数据（虚构讲者与主题） —— */
+  var SESSIONS = [
+    { d: 'd1', time: '10:00', venue: 'A', type: 'talk', title: '开幕主旨：设计在城市之外', by: '李慕白 · 设计评论人，前《.ui周刊》主编' },
+    { d: 'd1', time: '14:00', venue: 'B', type: 'workshop', title: '动态海报 101：让平面动起来', by: '孙一苇 · 动态设计师' },
+    { d: 'd1', time: '16:00', venue: 'C', type: 'expo', title: '主展「边界与皮肤」开幕导览', by: '策展团队：无界组委会' },
+    { d: 'd2', time: '10:30', venue: 'A', type: 'talk', title: 'AI 与作者性：谁的签名在右下角', by: 'Grace Wren · AIGC 研究者（虚构）' },
+    { d: 'd2', time: '13:30', venue: 'B', type: 'workshop', title: '可变字体实操：一根轴改变一切', by: '文彻 · 字体工程师' },
+    { d: 'd2', time: '18:00', venue: 'C', type: 'expo', title: '独立出版快闪：50 家 zine 摊位', by: '全线开放 · 免费逛展' },
+    { d: 'd3', time: '10:30', venue: 'A', type: 'talk', title: '可持续材料：从垃圾填埋场到展台', by: '陆一舟 · 材料设计师' },
+    { d: 'd3', time: '14:00', venue: 'B', type: 'workshop', title: '3D 打印灯具：从建模到点亮', by: '何见山 · 产品设计师' },
+    { d: 'd3', time: '20:00', venue: 'C', type: 'expo', title: '声音装置夜场：可以听的展厅', by: '声音艺术小组「回声滩」（虚构）' },
+    { d: 'd4', time: '10:30', venue: 'A', type: 'talk', title: '青年设计师 12 分钟接龙', by: '12 位新锐 · 依次登台' },
+    { d: 'd4', time: '13:30', venue: 'B', type: 'workshop', title: '数据可视化手作：纸上的图表', by: '祁乐 · 信息设计师' },
+    { d: 'd4', time: '17:00', venue: 'C', type: 'expo', title: '闭幕放映 + 颁奖：学生单元', by: '评审团现场揭晓' }
+  ];
+  var DAY_LABEL = { d1: '10.15 周四', d2: '10.16 周五', d3: '10.17 周六', d4: '10.18 周日' };
+  var TYPE_LABEL = { talk: '主论坛', workshop: '工作坊', expo: '展览' };
+  var VENUE_LABEL = { A: 'A 主厅', B: 'B 车间', C: 'C 仓库' };
+
+  /* —— 日程渲染 + 三重筛选 —— */
+  (function schedule() {
+    var wrap = document.getElementById('schedRows');
+    var empty = document.getElementById('schedEmpty');
+    if (!wrap) return;
+    var state = { day: 'all', venue: 'all', type: 'all' };
+
+    function render() {
+      var list = SESSIONS.filter(function (s) {
+        return (state.day === 'all' || s.d === state.day) &&
+               (state.venue === 'all' || s.venue === state.venue) &&
+               (state.type === 'all' || s.type === state.type);
+      });
+      wrap.innerHTML = list.map(function (s) {
+        return '<article class="row">' +
+          '<p class="row__time">' + DAY_LABEL[s.d] + '<br>' + s.time + '</p>' +
+          '<div><h3 class="row__title">' + s.title + '<small>' + s.by + ' · ' + VENUE_LABEL[s.venue] + '</small></h3></div>' +
+          '<div class="row__tags"><span class="row__tag row__tag--red">' + TYPE_LABEL[s.type] + '</span></div>' +
+          '</article>';
+      }).join('');
+      var none = list.length === 0;
+      empty.hidden = !none;
+      wrap.style.display = none ? 'none' : '';
+    }
+
+    /* chip 单选组 */
+    document.querySelectorAll('.filters__group').forEach(function (group) {
+      var key = group.getAttribute('data-group');
+      group.querySelectorAll('.chip').forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          group.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('is-on'); });
+          chip.classList.add('is-on');
+          state[key] = chip.getAttribute('data-val');
+          render();
+        });
+      });
+    });
+    document.getElementById('schedReset').addEventListener('click', function () {
+      state = { day: 'all', venue: 'all', type: 'all' };
+      document.querySelectorAll('.filters__group').forEach(function (g) {
+        g.querySelectorAll('.chip').forEach(function (c, i) {
+          c.classList.toggle('is-on', c.getAttribute('data-val') === 'all');
+        });
+      });
+      render();
+    });
+    render();
+  })();
+
+  /* —— 购票弹窗三步 —— */
+  (function buyModal() {
+    var modal = document.getElementById('buyModal');
+    if (!modal) return;
+    var steps = modal.querySelectorAll('.modal__step');
+    var dots = modal.querySelectorAll('[data-dot]');
+    var plan = '早鸟票 ¥399';
+    var lastFocus = null;
+
+    function show(stepNo) {
+      steps.forEach(function (s) { s.hidden = s.getAttribute('data-step') !== String(stepNo); });
+      dots.forEach(function (d) { d.classList.toggle('is-on', parseInt(d.getAttribute('data-dot'), 10) <= stepNo); });
+      document.getElementById('buyTitle').textContent = ['选票档', '填写信息', '完成'][stepNo - 1];
+      var focusable = modal.querySelector('[data-step="' + stepNo + '"] button, [data-step="' + stepNo + '"] input');
+      if (focusable) focusable.focus();
+    }
+    function open(withPlan) {
+      if (withPlan) plan = withPlan;
+      document.getElementById('mformPlan').textContent = plan;
+      /* 同步第一步的选中态 */
+      modal.querySelectorAll('.mplan').forEach(function (p) {
+        p.classList.toggle('is-pick', p.getAttribute('data-plan') === plan);
+      });
+      lastFocus = document.activeElement;
+      modal.hidden = false;
+      document.documentElement.classList.add('menu-locked');
+      show(1);
+    }
+    function close() {
+      modal.hidden = true;
+      document.documentElement.classList.remove('menu-locked');
+      if (lastFocus) lastFocus.focus();
+    }
+
+    document.querySelectorAll('[data-buy]').forEach(function (btn) {
+      btn.addEventListener('click', function () { open(btn.getAttribute('data-plan')); });
+    });
+    modal.querySelectorAll('[data-close]').forEach(function (el) {
+      el.addEventListener('click', close);
+    });
+    modal.querySelectorAll('.mplan').forEach(function (p) {
+      p.addEventListener('click', function () {
+        plan = p.getAttribute('data-plan');
+        modal.querySelectorAll('.mplan').forEach(function (q) { q.classList.toggle('is-pick', q === p); });
+        document.getElementById('mformPlan').textContent = plan;
+      });
+    });
+    modal.querySelector('[data-next]').addEventListener('click', function () { show(2); });
+    modal.querySelector('[data-back]').addEventListener('click', function () { show(1); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !modal.hidden) close();
+    });
+
+    /* 步骤 2 表单校验 */
+    var form = document.getElementById('buyForm');
+    var summary = form.querySelector('.form__summary');
+    var rules = {
+      name: function (v) { return v.trim().length >= 2 ? '' : '请填写购票人姓名'; },
+      email: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ? '' : '请填写有效邮箱（接收电子票）'; },
+      phone: function (v) { return /^1[3-9]\d{9}$/.test(v.trim()) ? '' : '请填写 11 位大陆手机号'; }
+    };
+    var setErr = function (input, msg) {
+      var field = input.closest('.field');
+      field.classList.toggle('is-error', !!msg);
+      input.setAttribute('aria-invalid', msg ? 'true' : 'false');
+      field.querySelector('.field__err').textContent = msg;
+    };
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var firstBad = null;
+      Object.keys(rules).forEach(function (name) {
+        var msg = rules[name](form.elements[name].value);
+        setErr(form.elements[name], msg);
+        if (msg && !firstBad) firstBad = form.elements[name];
+      });
+      var agree = form.elements.agree;
+      var agreeErr = agree.closest('.field').querySelector('.field__err');
+      agreeErr.textContent = agree.checked ? '' : '请先同意《购票须知》';
+      if (!agree.checked && !firstBad) firstBad = agree;
+      if (firstBad) {
+        summary.textContent = '请补全上方标红的信息后再提交。';
+        firstBad.focus();
+        return;
+      }
+      summary.textContent = '';
+      document.getElementById('ticketNo').textContent = 'UB-2026-' + String(Math.floor(100000 + Math.random() * 900000));
+      document.getElementById('ticketMail').textContent = form.elements.email.value.trim();
+      show(3);
+    });
+    form.addEventListener('input', function (e) {
+      if (rules[e.target.name]) setErr(e.target, '');
+    });
+  })();
+})();
+</script>
+</body>
+</html>
