@@ -110,8 +110,11 @@ p { color: var(--soft); }
   display: flex; flex-direction: column;
   background: var(--card); border: 1px solid var(--line); border-radius: 18px;
   padding: 12px 12px 16px; text-decoration: none; color: inherit;
-  transition: transform .55s var(--ease), box-shadow .55s var(--ease), border-color .4s;
+  transition: opacity .55s var(--ease), transform .55s var(--ease), box-shadow .55s var(--ease), border-color .4s;
 }
+/* 卡片入场：类驱动（不依赖滚动库），筛选后立即呈现，避免出现「计数有、画面空」 */
+html.js .card { opacity: 0; transform: translateY(24px); }
+html.js .card.is-in { opacity: 1; transform: none; }
 .card.hide { display: none; }
 .card:hover, .card:focus-visible { transform: translateY(-7px); box-shadow: 0 26px 44px -30px rgba(21, 21, 26, .5); border-color: rgba(21, 21, 26, .3); }
 
@@ -164,6 +167,7 @@ p { color: var(--soft); }
   .card-meta h3 { font-size: 1.28rem; }
 }
 @media (prefers-reduced-motion: reduce) {
+  html.js .card { opacity: 1; transform: none; }
   .card:hover, .card:focus-visible { transform: none; }
   .card:hover .thumb img { transform: none; }
 }
@@ -201,7 +205,7 @@ p { color: var(--soft); }
 
   <section class="wrap wall" id="wall" aria-label="站点画廊">
 
-    <a class="card" href="01-沄山.html" data-cat="organic" data-reveal>
+    <a class="card" href="01-沄山.html" data-cat="organic">
       <div class="thumb"><img src="assets/previews/01.jpg" alt="沄山 YUNSHAN 首屏" loading="eager" decoding="async" onerror="this.style.display='none'"><span class="badge">#01 · 沄山 YUNSHAN</span></div>
       <div class="card-meta">
         <h3>沄山 YUNSHAN<span>茶品牌官网</span></h3>
@@ -212,7 +216,7 @@ p { color: var(--soft); }
       </div>
     </a>
 
-    <a class="card" href="02-澜析.html" data-cat="dark" data-reveal>
+    <a class="card" href="02-澜析.html" data-cat="dark">
       <div class="thumb"><img src="assets/previews/02.jpg" alt="澜析 FLOWLENS 首屏" loading="eager" decoding="async" onerror="this.style.display='none'"><span class="badge">#02 · 澜析 FLOWLENS</span></div>
       <div class="card-meta">
         <h3>澜析 FLOWLENS<span>数据协作 SaaS</span></h3>
@@ -223,7 +227,7 @@ p { color: var(--soft); }
       </div>
     </a>
 
-    <a class="card" href="03-陆一.html" data-cat="type" data-reveal>
+    <a class="card" href="03-陆一.html" data-cat="type">
       <div class="thumb"><img src="assets/previews/03.jpg" alt="陆一 LU YI 首屏" loading="eager" decoding="async" onerror="this.style.display='none'"><span class="badge">#03 · 陆一 LU YI</span></div>
       <div class="card-meta">
         <h3>陆一 LU YI<span>交互设计师作品集</span></h3>
@@ -234,7 +238,7 @@ p { color: var(--soft); }
       </div>
     </a>
 
-    <a class="card" href="04-無二设计.html" data-cat="type" data-reveal>
+    <a class="card" href="04-無二设计.html" data-cat="type">
       <div class="thumb"><img src="assets/previews/04.jpg" alt="無二设计 WUER 首屏" loading="lazy" decoding="async" onerror="this.style.display='none'"><span class="badge">#04 · 無二设计 WUER</span></div>
       <div class="card-meta">
         <h3>無二设计 WUER<span>设计工作室</span></h3>
@@ -245,7 +249,7 @@ p { color: var(--soft); }
       </div>
     </a>
 
-    <a class="card" href="05-拾器.html" data-cat="organic" data-reveal>
+    <a class="card" href="05-拾器.html" data-cat="organic">
       <div class="thumb"><img src="assets/previews/05.jpg" alt="拾器 SHIQI 首屏" loading="lazy" decoding="async" onerror="this.style.display='none'"><span class="badge">#05 · 拾器 SHIQI</span></div>
       <div class="card-meta">
         <h3>拾器 SHIQI<span>家居器物精品电商</span></h3>
@@ -256,7 +260,7 @@ p { color: var(--soft); }
       </div>
     </a>
 
-    <a class="card" href="06-鹭汀.html" data-cat="retro" data-reveal>
+    <a class="card" href="06-鹭汀.html" data-cat="retro">
       <div class="thumb"><img src="assets/previews/06.jpg" alt="鹭汀 LUTING 首屏" loading="lazy" decoding="async" onerror="this.style.display='none'"><span class="badge">#06 · 鹭汀 LUTING</span></div>
       <div class="card-meta">
         <h3>鹭汀 LUTING<span>法式 Fine Dining</span></h3>
@@ -267,7 +271,7 @@ p { color: var(--soft); }
       </div>
     </a>
 
-    <a class="card" href="07-松涧.html" data-cat="editorial" data-reveal>
+    <a class="card" href="07-松涧.html" data-cat="editorial">
       <div class="thumb"><img src="assets/previews/07.jpg" alt="松涧 SONGJIAN 首屏" loading="lazy" decoding="async" onerror="this.style.display='none'"><span class="badge">#07 · 松涧 SONGJIAN</span></div>
       <div class="card-meta">
         <h3>松涧 SONGJIAN<span>山谷精品民宿</span></h3>
@@ -278,7 +282,7 @@ p { color: var(--soft); }
       </div>
     </a>
 
-    <a class="card" href="08-澐台.html" data-cat="dark" data-reveal>
+    <a class="card" href="08-澐台.html" data-cat="dark">
       <div class="thumb"><img src="assets/previews/08.jpg" alt="澐台 YUNTAI 首屏" loading="lazy" decoding="async" onerror="this.style.display='none'"><span class="badge">#08 · 澐台 YUNTAI</span></div>
       <div class="card-meta">
         <h3>澐台 YUNTAI<span>城市顶豪住宅</span></h3>
@@ -289,7 +293,7 @@ p { color: var(--soft); }
       </div>
     </a>
 
-    <a class="card" href="09-凌曜.html" data-cat="tech" data-reveal>
+    <a class="card" href="09-凌曜.html" data-cat="tech">
       <div class="thumb"><img src="assets/previews/09.jpg" alt="凌曜 LINGYAO 首屏" loading="lazy" decoding="async" onerror="this.style.display='none'"><span class="badge">#09 · 凌曜 LINGYAO GT</span></div>
       <div class="card-meta">
         <h3>凌曜 LINGYAO<span>纯电轿跑</span></h3>
@@ -300,7 +304,7 @@ p { color: var(--soft); }
       </div>
     </a>
 
-    <a class="card" href="10-衡略.html" data-cat="editorial" data-reveal>
+    <a class="card" href="10-衡略.html" data-cat="editorial">
       <div class="thumb"><img src="assets/previews/10.jpg" alt="衡略 HENGLUE 首屏" loading="lazy" decoding="async" onerror="this.style.display='none'"><span class="badge">#10 · 衡略 HENGLUE</span></div>
       <div class="card-meta">
         <h3>衡略 HENGLUE<span>战略咨询</span></h3>
@@ -311,7 +315,7 @@ p { color: var(--soft); }
       </div>
     </a>
 
-    <a class="card" href="11-素研.html" data-cat="organic" data-reveal>
+    <a class="card" href="11-素研.html" data-cat="organic">
       <div class="thumb"><img src="assets/previews/11.jpg" alt="素研 SUYAN 首屏" loading="lazy" decoding="async" onerror="this.style.display='none'"><span class="badge">#11 · 素研 SUYAN</span></div>
       <div class="card-meta">
         <h3>素研 SUYAN<span>轻医美诊所</span></h3>
@@ -322,7 +326,7 @@ p { color: var(--soft); }
       </div>
     </a>
 
-    <a class="card" href="12-旷野学堂.html" data-cat="editorial" data-reveal>
+    <a class="card" href="12-旷野学堂.html" data-cat="editorial">
       <div class="thumb"><img src="assets/previews/12.jpg" alt="旷野学堂 OPENFIELD 首屏" loading="lazy" decoding="async" onerror="this.style.display='none'"><span class="badge">#12 · 旷野学堂 OPENFIELD</span></div>
       <div class="card-meta">
         <h3>旷野学堂 OPENFIELD<span>创意职业教育</span></h3>
@@ -333,7 +337,7 @@ p { color: var(--soft); }
       </div>
     </a>
 
-    <a class="card" href="13-无界设计周.html" data-cat="type" data-reveal>
+    <a class="card" href="13-无界设计周.html" data-cat="type">
       <div class="thumb"><img src="assets/previews/13.jpg" alt="无界设计周 UNBOUND 首屏" loading="lazy" decoding="async" onerror="this.style.display='none'"><span class="badge">#13 · 无界设计周 UNBOUND</span></div>
       <div class="card-meta">
         <h3>无界设计周 UNBOUND<span>城市设计节</span></h3>
@@ -344,7 +348,7 @@ p { color: var(--soft); }
       </div>
     </a>
 
-    <a class="card" href="14-共振节.html" data-cat="retro" data-reveal>
+    <a class="card" href="14-共振节.html" data-cat="retro">
       <div class="thumb"><img src="assets/previews/14.jpg" alt="共振节 RESONATE 首屏" loading="lazy" decoding="async" onerror="this.style.display='none'"><span class="badge">#14 · 共振节 RESONATE</span></div>
       <div class="card-meta">
         <h3>共振节 RESONATE<span>独立音乐节</span></h3>
@@ -355,7 +359,7 @@ p { color: var(--soft); }
       </div>
     </a>
 
-    <a class="card" href="15-折线建筑.html" data-cat="editorial" data-reveal>
+    <a class="card" href="15-折线建筑.html" data-cat="editorial">
       <div class="thumb"><img src="assets/previews/15.jpg" alt="折线建筑 FOLDLINE 首屏" loading="lazy" decoding="async" onerror="this.style.display='none'"><span class="badge">#15 · 折线建筑 FOLDLINE</span></div>
       <div class="card-meta">
         <h3>折线建筑 FOLDLINE<span>建筑事务所</span></h3>
@@ -366,7 +370,7 @@ p { color: var(--soft); }
       </div>
     </a>
 
-    <a class="card" href="16-屿ISLE.html" data-cat="editorial" data-reveal>
+    <a class="card" href="16-屿ISLE.html" data-cat="editorial">
       <div class="thumb"><img src="assets/previews/16.jpg" alt="屿 ISLE 首屏" loading="lazy" decoding="async" onerror="this.style.display='none'"><span class="badge">#16 · 屿 ISLE</span></div>
       <div class="card-meta">
         <h3>屿 ISLE<span>独立女装设计师品牌</span></h3>
@@ -377,7 +381,7 @@ p { color: var(--soft); }
       </div>
     </a>
 
-    <a class="card" href="17-元几.html" data-cat="tech" data-reveal>
+    <a class="card" href="17-元几.html" data-cat="tech">
       <div class="thumb"><img src="assets/previews/17.jpg" alt="元几 YUANJI 首屏" loading="lazy" decoding="async" onerror="this.style.display='none'"><span class="badge">#17 · 元几 YUANJI</span></div>
       <div class="card-meta">
         <h3>元几 YUANJI<span>AI 桌面机器人</span></h3>
@@ -388,7 +392,7 @@ p { color: var(--soft); }
       </div>
     </a>
 
-    <a class="card" href="18-梭语.html" data-cat="retro" data-reveal>
+    <a class="card" href="18-梭语.html" data-cat="retro">
       <div class="thumb"><img src="assets/previews/18.jpg" alt="梭语 SUOYU 首屏" loading="lazy" decoding="async" onerror="this.style.display='none'"><span class="badge">#18 · 梭语 SUOYU</span></div>
       <div class="card-meta">
         <h3>梭语 SUOYU<span>缂丝非遗数字馆</span></h3>
@@ -399,7 +403,7 @@ p { color: var(--soft); }
       </div>
     </a>
 
-    <a class="card" href="19-熔炉.html" data-cat="dark" data-reveal>
+    <a class="card" href="19-熔炉.html" data-cat="dark">
       <div class="thumb"><img src="assets/previews/19.jpg" alt="熔炉 FORGE 首屏" loading="lazy" decoding="async" onerror="this.style.display='none'"><span class="badge">#19 · 熔炉 FORGE</span></div>
       <div class="card-meta">
         <h3>熔炉 FORGE<span>高端健身俱乐部</span></h3>
@@ -410,7 +414,7 @@ p { color: var(--soft); }
       </div>
     </a>
 
-    <a class="card" href="20-格物.html" data-cat="tech" data-reveal>
+    <a class="card" href="20-格物.html" data-cat="tech">
       <div class="thumb"><img src="assets/previews/20.jpg" alt="格物 GEWU 首屏" loading="lazy" decoding="async" onerror="this.style.display='none'"><span class="badge">#20 · 格物 GEWU</span></div>
       <div class="card-meta">
         <h3>格物 GEWU<span>数据智能平台</span></h3>
@@ -602,7 +606,7 @@ p { color: var(--soft); }
 (function () {
   'use strict';
   window.initLenis();
-  window.revealOnScroll();
+  window.revealOnScroll();   /* 仅用于 hero 文案等首屏元素 */
   window.initCursor();
 
   var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
@@ -622,6 +626,34 @@ p { color: var(--soft); }
     if (!tally[chip.dataset.cat]) chip.hidden = true;   /* 没有该类目就隐藏，不出空筛选 */
   });
 
+  /* —— 卡片入场：由类驱动，不依赖滚动库的触发位置 ——
+     之前用 GSAP + ScrollTrigger 做卡片入场，筛选后网格重排但触发器位置未刷新，
+     会出现「计数 5 个、页面一片空白」。这里改为 IntersectionObserver 持续观察，
+     并在筛选时立刻给命中卡片上 is-in，彻底摆脱滚动状态依赖。 */
+  var cardIO = null;
+  function enter(card, nearOnly) {
+    card.classList.add('is-in');
+    var img = card.querySelector('.thumb img');
+    if (!img || img.loading !== 'lazy') return;
+    if (nearOnly) {
+      var r = card.getBoundingClientRect();
+      if (r.top < window.innerHeight * 1.5 && r.bottom > -240) img.loading = 'eager';
+    } else {
+      img.loading = 'eager';
+    }
+  }
+  if ('IntersectionObserver' in window) {
+    cardIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) enter(en.target);
+      });
+    }, { threshold: 0.02, rootMargin: '0px 0px -40px 0px' });
+    cards.forEach(function (c) { cardIO.observe(c); });
+  } else {
+    cards.forEach(enter);
+  }
+
+  /* —— 风格筛选 —— */
   chips.forEach(function (chip) {
     chip.addEventListener('click', function () {
       chips.forEach(function (c) { c.classList.remove('is-on'); });
@@ -631,27 +663,11 @@ p { color: var(--soft); }
       cards.forEach(function (card) {
         var on = cat === 'all' || card.dataset.cat === cat;
         card.classList.toggle('hide', !on);
-        if (on) shown++;
+        if (on) { shown++; enter(card, true); }   /* 命中即呈现，不等滚动 */
       });
       countEl.textContent = shown;
     });
   });
-
-  /* —— 预览图保险：接近视口即强制 eager（部分浏览器对 data-URI 懒加载不触发） —— */
-  var thumbs = Array.prototype.slice.call(document.querySelectorAll('.thumb img'));
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        var img = en.target.querySelector('img');
-        if (img && img.loading === 'lazy') img.loading = 'eager';
-        io.unobserve(en.target);
-      });
-    }, { rootMargin: '500px 0px' });
-    document.querySelectorAll('.thumb').forEach(function (t) { io.observe(t); });
-  } else {
-    thumbs.forEach(function (img) { img.loading = 'eager'; });
-  }
 })();
 </script>
 </body>

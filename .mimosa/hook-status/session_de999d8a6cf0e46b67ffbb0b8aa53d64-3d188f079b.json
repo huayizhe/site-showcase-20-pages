@@ -1,14 +1,14 @@
 {
   "schemaVersion": "mimosa-hook-status/v1",
-  "recordedAt": "2026-10-28T05:43:06.056Z",
+  "recordedAt": "2026-10-28T05:46:49.053Z",
   "sessionId": "session_de999d8a6cf0e46b67ffbb0b8aa53d64",
   "event": "PostToolUse",
-  "toolName": "Write",
-  "file": "D:\\AI Agent WorkSpaces\\Z.Code\\defalut\\网站案例库\\tools\\deploy.sh",
-  "outcome": "inconclusive",
-  "coverage": "partial",
+  "toolName": "Edit",
+  "file": "D:\\AI Agent WorkSpaces\\Z.Code\\defalut\\网站案例库\\README.md",
+  "outcome": "clear",
+  "coverage": "complete",
   "findingCount": 0,
-  "durationMs": 26,
+  "durationMs": 9,
   "hostState": "hook_complete",
   "reportHint": ".mimosa/reports/"
 }
