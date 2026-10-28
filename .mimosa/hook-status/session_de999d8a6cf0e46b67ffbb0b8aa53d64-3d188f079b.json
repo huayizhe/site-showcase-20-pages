@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "mimosa-hook-status/v1",
+  "recordedAt": "2026-10-28T05:43:06.056Z",
+  "sessionId": "session_de999d8a6cf0e46b67ffbb0b8aa53d64",
+  "event": "PostToolUse",
+  "toolName": "Write",
+  "file": "D:\\AI Agent WorkSpaces\\Z.Code\\defalut\\网站案例库\\tools\\deploy.sh",
+  "outcome": "inconclusive",
+  "coverage": "partial",
+  "findingCount": 0,
+  "durationMs": 26,
+  "hostState": "hook_complete",
+  "reportHint": ".mimosa/reports/"
+}
